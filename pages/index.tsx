@@ -1,8 +1,8 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
 
-export default function Home() {
+const Home: NextPage = () => {
   const images = [
     "followed",
     "categories",
@@ -129,4 +129,6 @@ export default function Home() {
       </footer>
     </>
   );
-}
+};
+
+export default Home;
