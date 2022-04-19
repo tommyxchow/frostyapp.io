@@ -3,15 +3,34 @@ import Image from "next/image";
 import React from "react";
 
 export default function Home() {
-  const images = ["followed", "channel", "categories", "search", "settings"];
+  const images = [
+    "followed",
+    "categories",
+    "search",
+    "channel",
+    "emote",
+    "settings",
+  ];
 
   const captions = [
     "View Followed Streams",
-    "Chat With an Emote Menu",
     "Browse Top Streams and Categories",
     "Search for Channels and Categories",
+    "Watch Live Streams",
+    "Chat With an Emote Menu",
     "Customizable Settings",
   ];
+
+  const titles = [
+    "Followed Streams",
+    "Top Categories",
+    "Search",
+    "Channel",
+    "Emote Menu",
+    "Settings",
+  ];
+
+  const repoLink = "https://github.com/tommyxchow/frosty";
 
   return (
     <>
@@ -31,12 +50,19 @@ export default function Home() {
         </div>
 
         <div className="description">
-          <p>
-            A free and open-source mobile Twitch client
-            <br />
-            <br />
-            Browse, Watch, and Chat with BTTV, FFZ, and 7TV Emotes
-          </p>
+          A free and{" "}
+          <a
+            className="open-source"
+            href={repoLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            open-source
+          </a>{" "}
+          mobile Twitch client.
+          <br />
+          <br />
+          Browse, watch, and chat with BTTV, FFZ, and 7TV emotes.
         </div>
 
         <div className="badges">
@@ -46,7 +72,8 @@ export default function Home() {
             rel="noreferrer"
           >
             <Image
-              alt="Get on iOS"
+              alt="Get on iOS badge"
+              title="Get it on iOS!"
               src={`/badges/apple_app_store_badge.svg`}
               height="67"
               width="200"
@@ -60,7 +87,8 @@ export default function Home() {
             rel="noreferrer"
           >
             <Image
-              alt="Get on Android"
+              alt="Get on Android badge"
+              title="Get it on Android!"
               src={`/badges/google_play_store_badge.svg`}
               height="67"
               width="225"
@@ -72,27 +100,23 @@ export default function Home() {
 
         <div className="images">
           {images.map((imageName, index) => (
-            <div key={imageName} className="image">
+            <figure key={imageName} className="image">
               <Image
                 key={imageName}
-                alt={imageName}
+                alt={titles[index]}
+                title={titles[index]}
                 src={`/screenshots/${imageName}.png`}
                 height="1202"
                 width="596"
-                objectFit="contain"
               />
-              <p className="caption">{captions[index]}</p>
-            </div>
+              <figcaption className="caption">{captions[index]}</figcaption>
+            </figure>
           ))}
         </div>
       </main>
 
       <footer>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://github.com/tommyxchow/frosty"
-        >
+        <a target="_blank" rel="noreferrer" href={repoLink}>
           GitHub
         </a>
         <a
