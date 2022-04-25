@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Layout from '../components/layout';
 import { repoLink } from '../constants';
-import styles from '../styles/Home.module.css';
 
 const Home = () => {
   const images = [
@@ -33,18 +32,27 @@ const Home = () => {
 
   return (
     <Layout description='A free and open-source mobile Twitch client for iOS and Android.'>
-      <header className={styles.header}>
-        <Image alt='Logo' src={`/logo.svg`} height='150' width='150' />
-        <div className={styles.title}>
-          <h1 className={styles.frosty}>Frosty</h1>
-          <div className={styles.subtitle}>for Twitch</div>
+      <header className='mb-16 flex flex-row items-center gap-4'>
+        <div className='relative h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40'>
+          <Image
+            alt='Logo'
+            src={`/logo.svg`}
+            layout='fill'
+            objectFit='contain'
+          />
+        </div>
+        <div>
+          <h1 className='text-7xl font-bold sm:text-8xl md:text-9xl'>Frosty</h1>
+          <h5 className='relative left-1 font-light sm:text-lg md:text-xl'>
+            for Twitch
+          </h5>
         </div>
       </header>
 
-      <div className={styles.description}>
+      <div className='mb-12 text-center text-lg font-medium sm:text-xl md:text-2xl'>
         A free and{' '}
         <a
-          className={styles.openSource}
+          className='hover:underline'
           href={repoLink}
           target='_blank'
           rel='noreferrer'
@@ -57,7 +65,7 @@ const Home = () => {
         Browse, watch, and chat with BTTV, FFZ, and 7TV emotes.
       </div>
 
-      <div className={styles.badges}>
+      <div className='mb-20 flex flex-col items-center gap-4 sm:flex-row'>
         <a
           href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
           target='_blank'
@@ -90,9 +98,12 @@ const Home = () => {
         </a>
       </div>
 
-      <div className={styles.images}>
+      <div className='mb-12 flex max-w-screen-2xl flex-col sm:grid md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2'>
         {images.map((imageName, index) => (
-          <figure key={imageName} className={styles.image}>
+          <figure
+            key={imageName}
+            className='my-12 mx-6 flex flex-col items-center'
+          >
             <Image
               key={imageName}
               alt={titles[index]}
@@ -101,7 +112,7 @@ const Home = () => {
               height='1202'
               width='596'
             />
-            <figcaption className={styles.caption}>
+            <figcaption className='text-center font-light'>
               {captions[index]}
             </figcaption>
           </figure>
