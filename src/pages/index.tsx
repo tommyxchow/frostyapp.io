@@ -43,13 +43,13 @@ const Home = () => {
         </div>
         <div>
           <h1 className='text-7xl font-bold sm:text-8xl md:text-9xl'>Frosty</h1>
-          <h5 className='relative left-1 font-light sm:text-lg md:text-xl'>
+          <h5 className='relative left-1 font-light sm:left-1.5 sm:text-lg md:left-2 md:text-xl'>
             for Twitch
           </h5>
         </div>
       </header>
 
-      <div className='mb-12 text-center text-lg font-medium sm:text-xl md:text-2xl'>
+      <div className='mb-12 text-center text-xl font-medium md:text-2xl'>
         A free and{' '}
         <a
           className='hover:underline'
