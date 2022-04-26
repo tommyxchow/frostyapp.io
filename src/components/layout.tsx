@@ -13,7 +13,9 @@ const Layout = (props: Props) => {
         <link rel='icon' href='/logo.svg' />
       </Head>
 
-      <main className='flex flex-col items-center p-8'>{props.children}</main>
+      <main className='flex min-h-screen flex-col items-center p-8'>
+        {props.children}
+      </main>
 
       <footer className='flex flex-col items-center gap-6 pb-8 opacity-50'>
         <div className='flex flex-row justify-center gap-6'>
