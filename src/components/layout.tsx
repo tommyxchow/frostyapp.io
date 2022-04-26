@@ -34,7 +34,7 @@ const Layout = (props: Props) => {
             Privacy Policy
           </a>
         </div>
-        <p className='text-sm'>Designed & Developed by Tommy Chow</p>
+        <p className='text-sm font-light'>Designed & Developed by Tommy Chow</p>
       </footer>
     </>
   );
