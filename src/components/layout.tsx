@@ -5,7 +5,7 @@ import { Props } from '../types';
 
 const Layout = (props: Props) => {
   return (
-    <>
+    <div className='bg-gradient-to-b from-twitch-purple to-black'>
       <Head>
         <title>Frosty</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -13,9 +13,9 @@ const Layout = (props: Props) => {
         <link rel='icon' href='/logo.svg' />
       </Head>
 
-      <main>{props.children}</main>
+      <main className='flex flex-col items-center p-8'>{props.children}</main>
 
-      <footer>
+      <footer className='flex flex-col items-center gap-6 pb-8 opacity-50'>
         <div className='flex flex-row justify-center gap-6'>
           <a
             className='hover:underline'
@@ -36,7 +36,7 @@ const Layout = (props: Props) => {
         </div>
         <p className='text-sm font-light'>Designed & Developed by Tommy Chow</p>
       </footer>
-    </>
+    </div>
   );
 };
 

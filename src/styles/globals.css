@@ -5,23 +5,5 @@
 @tailwind utilities;
 
 html {
-  background: linear-gradient(#9146ff, #000000);
   color-scheme: dark;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 50%;
 }
