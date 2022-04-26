@@ -50,13 +50,13 @@ const Home = () => {
         </div>
       </header>
 
-      <div className='mb-16 text-center text-xl font-medium drop-shadow-md md:text-2xl'>
+      <div className='mb-10 text-center text-xl font-medium drop-shadow-md sm:text-2xl md:text-3xl'>
         <h3>A free and open-source mobile Twitch client.</h3>
         <br />
         <h3>Browse, watch, and chat with BTTV, FFZ, and 7TV emotes.</h3>
       </div>
 
-      <div className='mb-10 flex flex-col items-center gap-4 sm:flex-row'>
+      <div className='mb-6 flex flex-col items-center gap-4 sm:flex-row'>
         <a
           className='drop-shadow-lg transition hover:drop-shadow-none'
           href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
@@ -92,15 +92,13 @@ const Home = () => {
       </div>
 
       <a
-        className='mb-20 rounded-lg bg-gray-800 p-4 shadow-lg transition hover:bg-gray-900 hover:shadow-none'
+        className='mb-20 rounded-lg bg-gray-700 p-4 shadow-lg transition hover:bg-gray-800 hover:shadow-none active:bg-gray-900'
         href={repoLink}
         target='_blank'
         rel='noreferrer'
       >
-        <h3 className='text-lg'>
-          <FaGithub size={30} className='mr-2 inline' />
-          View source on GitHub
-        </h3>
+        <FaGithub size={30} className='mr-2 inline' />
+        View source on GitHub
       </a>
 
       <div className='mb-12 flex max-w-screen-2xl flex-col sm:grid md:grid-cols-2 lg:grid-cols-3'>
