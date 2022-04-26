@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Layout from '../components/layout';
 import { repoLink } from '../constants';
+import { FaGithub } from 'react-icons/fa';
 
 const Home = () => {
   const images = [
@@ -32,7 +33,7 @@ const Home = () => {
 
   return (
     <Layout description='A free and open-source mobile Twitch client for iOS and Android.'>
-      <header className='mb-16 flex flex-row items-center gap-4'>
+      <header className='mb-20 flex flex-row items-center gap-4 drop-shadow-xl'>
         <div className='relative h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40'>
           <Image
             alt='Logo'
@@ -49,24 +50,15 @@ const Home = () => {
         </div>
       </header>
 
-      <div className='mb-12 text-center text-xl font-medium md:text-2xl'>
-        A free and{' '}
-        <a
-          className='hover:underline'
-          href={repoLink}
-          target='_blank'
-          rel='noreferrer'
-        >
-          open-source
-        </a>{' '}
-        mobile Twitch client.
+      <div className='mb-16 text-center text-xl font-medium drop-shadow-md md:text-2xl'>
+        <h3>A free and open-source mobile Twitch client.</h3>
         <br />
-        <br />
-        Browse, watch, and chat with BTTV, FFZ, and 7TV emotes.
+        <h3>Browse, watch, and chat with BTTV, FFZ, and 7TV emotes.</h3>
       </div>
 
-      <div className='mb-20 flex flex-col items-center gap-4 sm:flex-row'>
+      <div className='mb-10 flex flex-col items-center gap-4 sm:flex-row'>
         <a
+          className='drop-shadow-lg transition hover:drop-shadow-none'
           href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
           target='_blank'
           rel='noreferrer'
@@ -82,6 +74,7 @@ const Home = () => {
           />
         </a>
         <a
+          className='drop-shadow-lg transition hover:drop-shadow-none'
           href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
           target='_blank'
           rel='noreferrer'
@@ -98,7 +91,19 @@ const Home = () => {
         </a>
       </div>
 
-      <div className='mb-12 flex max-w-screen-2xl flex-col sm:grid md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2'>
+      <a
+        className='mb-20 rounded-lg bg-gray-800 p-4 shadow-lg transition hover:bg-gray-900 hover:shadow-none'
+        href={repoLink}
+        target='_blank'
+        rel='noreferrer'
+      >
+        <h3 className='text-lg'>
+          <FaGithub size={30} className='mr-2 inline' />
+          View source on GitHub
+        </h3>
+      </a>
+
+      <div className='mb-12 flex max-w-screen-2xl flex-col sm:grid md:grid-cols-2 lg:grid-cols-3'>
         {images.map((imageName, index) => (
           <figure
             key={imageName}
@@ -112,7 +117,7 @@ const Home = () => {
               height='1202'
               width='596'
             />
-            <figcaption className='text-center font-light'>
+            <figcaption className='text-center font-light drop-shadow-sm'>
               {captions[index]}
             </figcaption>
           </figure>

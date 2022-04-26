@@ -16,16 +16,25 @@ const Layout = (props: Props) => {
       <main>{props.children}</main>
 
       <footer>
-        <a target='_blank' rel='noreferrer' href={repoLink}>
-          GitHub
-        </a>
-        <a
-          target='_blank'
-          rel='noreferrer'
-          href='https://www.privacypolicies.com/live/095b4264-31b1-4280-837e-5843abde8b16'
-        >
-          Privacy Policy
-        </a>
+        <div className='flex flex-row justify-center gap-6'>
+          <a
+            className='hover:underline'
+            target='_blank'
+            rel='noreferrer'
+            href={repoLink}
+          >
+            GitHub
+          </a>
+          <a
+            className='hover:underline'
+            target='_blank'
+            rel='noreferrer'
+            href='https://www.privacypolicies.com/live/095b4264-31b1-4280-837e-5843abde8b16'
+          >
+            Privacy Policy
+          </a>
+        </div>
+        <p className='text-sm'>Designed & Developed by Tommy Chow</p>
       </footer>
     </>
   );

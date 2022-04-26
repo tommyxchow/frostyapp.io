@@ -17,20 +17,11 @@ main {
   padding: 2rem;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 footer {
   display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  gap: 2rem;
-  font-size: 0.8rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
   opacity: 50%;
 }
