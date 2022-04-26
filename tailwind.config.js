@@ -9,7 +9,11 @@ module.exports = {
     fontFamily: {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
-    extend: {},
+    extend: {
+      colors: {
+        'twitch-purple': '#9146ff',
+      },
+    },
   },
   plugins: [],
 };
