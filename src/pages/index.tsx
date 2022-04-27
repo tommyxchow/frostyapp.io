@@ -33,16 +33,11 @@ const Home = () => {
 
   return (
     <Layout description='A free and open-source mobile Twitch client for iOS and Android.'>
-      <header className='mb-20 flex flex-row items-center gap-4 drop-shadow-xl'>
+      <header className='mb-20 flex flex-row items-center gap-4'>
         <div className='relative h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40'>
-          <Image
-            alt='Logo'
-            src={`/logo.svg`}
-            layout='fill'
-            objectFit='contain'
-          />
+          <Image alt='Logo' src={`/logo.svg`} layout='fill' />
         </div>
-        <div>
+        <div className='drop-shadow-xl'>
           <h1 className='text-7xl font-bold sm:text-8xl md:text-9xl'>Frosty</h1>
           <h5 className='relative left-1 font-light sm:left-1.5 sm:text-lg md:left-2 md:text-xl'>
             for Twitch
@@ -56,9 +51,9 @@ const Home = () => {
         <h3>Browse, watch, and chat with BTTV, FFZ, and 7TV emotes.</h3>
       </div>
 
-      <div className='mb-6 flex flex-col items-center gap-4 sm:flex-row'>
+      <div className='mb-4 flex flex-col items-center gap-4 sm:flex-row'>
         <a
-          className='drop-shadow-lg transition hover:drop-shadow-none'
+          className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
           href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
           target='_blank'
           rel='noreferrer'
@@ -74,7 +69,7 @@ const Home = () => {
           />
         </a>
         <a
-          className='drop-shadow-lg transition hover:drop-shadow-none'
+          className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
           href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
           target='_blank'
           rel='noreferrer'
@@ -92,7 +87,7 @@ const Home = () => {
       </div>
 
       <a
-        className='mb-20 rounded-lg bg-gray-700 p-4 shadow-lg transition hover:bg-gray-800 hover:shadow-none active:bg-gray-900'
+        className='translate mb-20 rounded-xl bg-gray-800 p-4 shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none'
         href={repoLink}
         target='_blank'
         rel='noreferrer'
@@ -115,7 +110,7 @@ const Home = () => {
               height='1202'
               width='596'
             />
-            <figcaption className='text-center font-light drop-shadow-sm'>
+            <figcaption className='text-center drop-shadow-sm'>
               {captions[index]}
             </figcaption>
           </figure>

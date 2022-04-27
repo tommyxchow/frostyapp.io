@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 import { repoLink } from '../constants';
-import { Props } from '../types';
 
-const Layout = (props: Props) => {
+const Layout = (props: LayoutProps) => {
   return (
     <div className='bg-gradient-to-b from-twitch-purple to-black'>
       <Head>
@@ -41,5 +40,10 @@ const Layout = (props: Props) => {
     </div>
   );
 };
+
+export interface LayoutProps {
+  children: React.ReactNode;
+  description: string;
+}
 
 export default Layout;
