@@ -35,7 +35,7 @@ const Home = () => {
     <Layout description='A free and open-source mobile Twitch client for iOS and Android.'>
       <header className='mb-20 flex flex-row items-center gap-4'>
         <div className='relative h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40'>
-          <Image alt='Logo' src={`/logo.svg`} layout='fill' />
+          <Image priority alt='Logo' src={`/logo.svg`} layout='fill' />
         </div>
         <div className='drop-shadow-xl'>
           <h1 className='text-7xl font-bold sm:text-8xl md:text-9xl'>Frosty</h1>
@@ -59,6 +59,7 @@ const Home = () => {
           rel='noreferrer'
         >
           <Image
+            priority
             alt='Get on iOS badge'
             title='Get it on iOS!'
             src={`/badges/apple_app_store_badge.svg`}
@@ -75,6 +76,7 @@ const Home = () => {
           rel='noreferrer'
         >
           <Image
+            priority
             alt='Get on Android badge'
             title='Get it on Android!'
             src={`/badges/google_play_store_badge.svg`}
@@ -109,6 +111,8 @@ const Home = () => {
               src={`/screenshots/${imageName}.png`}
               height='1202'
               width='596'
+              quality={100}
+              priority={index < 3}
             />
             <figcaption className='text-center drop-shadow-sm'>
               {captions[index]}
