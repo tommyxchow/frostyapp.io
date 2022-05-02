@@ -41,7 +41,7 @@ const Layout = (props: LayoutProps) => {
         <meta name='theme-color' content='#ffffff' />
       </Head>
 
-      <main className='flex min-h-screen flex-col items-center p-8'>
+      <main className='flex min-h-screen flex-col items-center p-8 pt-24'>
         {props.children}
       </main>
 
