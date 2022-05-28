@@ -33,16 +33,21 @@ function MyApp({ Component, pageProps }: AppProps) {
           color='#5bbad5'
         />
         <link rel='shortcut icon' href='/favicons/favicon.ico' />
-        <meta name='msapplication-TileColor' content='#603cba' />
+        <meta name='msapplication-TileColor' content='#9146FF' />
         <meta
           name='msapplication-config'
           content='/favicons/browserconfig.xml'
         />
-        <meta name='theme-color' content='#9146ff' />
+        <meta name='theme-color' content='#9146FF' />
 
+        <meta content='Frosty for Twitch' property='og:title' />
         <meta
-          property='og:image'
+          content='A free and open-source mobile Twitch client for iOS and Android.'
+          property='og:description'
+        />
+        <meta
           content='https://www.frostyapp.io/ogimage.png'
+          property='og:image'
         />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
