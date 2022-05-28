@@ -39,7 +39,7 @@ const Home = () => {
         </div>
         <div className='drop-shadow-xl'>
           <h1 className='text-7xl font-bold sm:text-8xl md:text-9xl'>Frosty</h1>
-          <p className='relative left-1 font-light sm:left-1.5 sm:text-lg md:left-2 md:text-xl'>
+          <p className='relative left-1 sm:left-1.5 sm:text-lg md:left-2 md:text-xl'>
             for Twitch
           </p>
         </div>

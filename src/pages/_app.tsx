@@ -40,16 +40,30 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name='theme-color' content='#9146FF' />
 
-        <meta content='Frosty for Twitch' property='og:title' />
+        <meta property='og:url' content='https://www.frostyapp.io/' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Frosty for Twitch' />
         <meta
-          content='A free and open-source mobile Twitch client for iOS and Android.'
           property='og:description'
+          content='A free and open-source mobile Twitch client for iOS and Android.'
         />
         <meta
-          content='https://www.frostyapp.io/ogimage.png'
           property='og:image'
+          content='https://www.frostyapp.io/ogimage.png'
         />
+
         <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='frostyapp.io' />
+        <meta property='twitter:url' content='https://www.frostyapp.io/' />
+        <meta name='twitter:title' content='Frosty for Twitch' />
+        <meta
+          name='twitter:description'
+          content='A free and open-source mobile Twitch client for iOS and Android.'
+        />
+        <meta
+          name='twitter:image'
+          content='https://www.frostyapp.io/ogimage.png'
+        />
       </Head>
       <Component {...pageProps} />
     </>
