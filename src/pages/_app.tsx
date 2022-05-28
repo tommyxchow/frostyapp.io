@@ -39,6 +39,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           content='/favicons/browserconfig.xml'
         />
         <meta name='theme-color' content='#ffffff' />
+
+        <meta
+          property='og:image'
+          content='https://www.frostyapp.io/ogimage.png'
+        />
       </Head>
       <Component {...pageProps} />
     </>
