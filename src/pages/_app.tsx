@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name='theme-color' content='#ffffff' />
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }
