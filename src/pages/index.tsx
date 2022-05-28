@@ -39,16 +39,56 @@ const Home = () => {
         </div>
         <div className='drop-shadow-xl'>
           <h1 className='text-7xl font-bold sm:text-8xl md:text-9xl'>Frosty</h1>
-          <h5 className='relative left-1 font-light sm:left-1.5 sm:text-lg md:left-2 md:text-xl'>
+          <p className='relative left-1 font-light sm:left-1.5 sm:text-lg md:left-2 md:text-xl'>
             for Twitch
-          </h5>
+          </p>
         </div>
       </header>
 
-      <div className='mb-10 text-center text-xl font-medium drop-shadow-md sm:text-2xl md:text-3xl'>
-        <h3>A free and open-source mobile Twitch client.</h3>
+      <div className='mb-10 text-center text-xl drop-shadow-md sm:text-2xl md:text-3xl'>
+        <p>
+          A{' '}
+          <a
+            className='font-semibold hover:underline'
+            href={repoLink}
+            target='_blank'
+            rel='noreferrer'
+          >
+            free and open-source
+          </a>{' '}
+          mobile Twitch client.
+        </p>
         <br />
-        <h3>Browse, watch, and chat with BTTV, FFZ, and 7TV emotes.</h3>
+        <p>
+          Browse, watch, and chat with{' '}
+          <a
+            className='font-semibold hover:underline'
+            href='https://betterttv.com'
+            target='_blank'
+            rel='noreferrer'
+          >
+            BTTV
+          </a>
+          ,{' '}
+          <a
+            className='font-semibold hover:underline'
+            href='https://www.frankerfacez.com'
+            target='_blank'
+            rel='noreferrer'
+          >
+            FFZ
+          </a>
+          , and{' '}
+          <a
+            className='font-semibold hover:underline'
+            href='https://7tv.app'
+            target='_blank'
+            rel='noreferrer'
+          >
+            7TV
+          </a>{' '}
+          emotes.
+        </p>
       </div>
 
       <div className='mb-4 flex flex-col items-center gap-4 sm:flex-row'>
