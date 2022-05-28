@@ -38,12 +38,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           name='msapplication-config'
           content='/favicons/browserconfig.xml'
         />
-        <meta name='theme-color' content='#ffffff' />
+        <meta name='theme-color' content='#9146ff' />
 
         <meta
           property='og:image'
           content='https://www.frostyapp.io/ogimage.png'
         />
+        <meta name='twitter:card' content='summary_large_image' />
       </Head>
       <Component {...pageProps} />
     </>
