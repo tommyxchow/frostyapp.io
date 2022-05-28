@@ -27,12 +27,22 @@ const Layout = (props: LayoutProps) => {
             className='hover:underline'
             target='_blank'
             rel='noreferrer'
-            href='https://www.privacypolicies.com/live/095b4264-31b1-4280-837e-5843abde8b16'
+            href='https://privacypolicies.com/live/095b4264-31b1-4280-837e-5843abde8b16'
           >
             Privacy Policy
           </a>
         </div>
-        <p className='text-sm font-light'>Designed & Developed by Tommy Chow</p>
+        <p className='text-sm font-light'>
+          Designed & Developed by{' '}
+          <a
+            className='hover:underline'
+            target='_blank'
+            rel='noreferrer'
+            href='https://tommychow.com'
+          >
+            Tommy Chow
+          </a>
+        </p>
       </footer>
     </div>
   );
