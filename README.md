@@ -24,3 +24,7 @@ Built with [Next.js](https://nextjs.org), styled with [Tailwind CSS](https://tai
 One common annoyance is that the class names can get freakishly long (especially once you get the breakpoints in), resulting in quite a bit of side-scrolling. It's also sometimes a little less readable to me since the Tailwind classes are read on one line left-to-right instead of top-down in your typical vanilla CSS.
 
 **TL;DR**: Very easy and fast to pick up and learn. Playing around and experimenting with styles feels quick and enjoyable. "Never leave your HTML" is a real solution. Overall, a better developer experience for me. One caveat is cluttered class names, which may result in less readability for some people.
+
+## License
+
+frostyapp.io is licensed under [MIT](LICENSE).
