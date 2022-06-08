@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [frostyapp.io](https://frostyapp.io)
 
-## Getting Started
+The homepage and marketing website for [Frosty](https://github.com/tommyxchow/frosty), a mobile Twitch.tv client for iOS and Android.
 
-First, run the development server:
+Built with [Next.js](https://nextjs.org), styled with [Tailwind CSS](https://tailwindcss.com), and deployed with [Vercel](https://vercel.com).
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Why Next.js?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. I wanted to learn more about React hands-on and get familiar with Next.js since it appears to be the popular standard for many React projects these days.
+2. I didn't want to deal with the intricacies of setting up a React project with CRA since I needed to have the website deployed ASAP.
+3. The majority of optimizations are automatic and require minimal setup, resulting in exceptional performance (97 for mobile and 99 for desktop on Lighthouse performance).
+4. Deployment is free and effortless with Vercel.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+**TL;DR**: The fastest way to get a performant React project configured and deployed. I wanted to start developing ASAP without worrying too much about properly setting up packages, linting, scripts, CI, deployment, etc.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Why Tailwind CSS?
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. I had trialed Tailwind CSS before and overall was an enjoyable experience. Felt much faster when developing and experimenting with styles since it's done right in the HTML.
+2. Some minor but common annoyances with vanilla CSS like switching between CSS files, naming classes, deciding which units and values to use, and forgetting specific CSS were pretty much gone.
+3. Coming from a Flutter background, having the styles alongside the components themselves was very familiar and nice to have.
+4. I became eager to learn more about Tailwind CSS, which drove me to work on the website even more (the documentation is great too).
+5. Hovering the Tailwind CSS in VSCode lets me view the actual CSS used, allowing me to learn and understand best practices at the same time should I ever return to vanilla CSS.
 
-## Learn More
+One common annoyance is that the class names can get freakishly long (especially once you get the breakpoints in), resulting in quite a bit of side-scrolling. It's also sometimes a little less readable to me since the Tailwind classes are read on one line left-to-right instead of top-down in your typical vanilla CSS.
 
-To learn more about Next.js, take a look at the following resources:
+**TL;DR**: Very easy and fast to pick up and learn. Playing around and experimenting with styles feels quick and enjoyable. "Never leave your HTML" is a real solution. Overall, a better developer experience for me. One caveat is cluttered class names, which may result in less readability for some people.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+frostyapp.io is licensed under [MIT](LICENSE).
