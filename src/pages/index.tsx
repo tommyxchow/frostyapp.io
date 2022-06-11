@@ -31,6 +31,45 @@ const Home = () => {
     'Settings',
   ];
 
+  const storeBadges = (
+    <div className='mb-4 flex flex-col items-center gap-4 sm:flex-row'>
+      <a
+        className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
+        href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
+        target='_blank'
+        rel='noreferrer'
+      >
+        <Image
+          priority
+          alt='Get on iOS badge'
+          title='Get it on iOS!'
+          src={`/badges/apple_app_store_badge.svg`}
+          height='67'
+          width='200'
+          layout='fixed'
+          objectFit='contain'
+        />
+      </a>
+      <a
+        className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
+        href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
+        target='_blank'
+        rel='noreferrer'
+      >
+        <Image
+          priority
+          alt='Get on Android badge'
+          title='Get it on Android!'
+          src={`/badges/google_play_store_badge.svg`}
+          height='67'
+          width='225'
+          layout='fixed'
+          objectFit='contain'
+        />
+      </a>
+    </div>
+  );
+
   return (
     <Layout description='A free and open-source mobile Twitch client for iOS and Android.'>
       <header className='mb-20 flex flex-row items-center gap-4'>
@@ -91,42 +130,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className='mb-4 flex flex-col items-center gap-4 sm:flex-row'>
-        <a
-          className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
-          href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Image
-            priority
-            alt='Get on iOS badge'
-            title='Get it on iOS!'
-            src={`/badges/apple_app_store_badge.svg`}
-            height='67'
-            width='200'
-            layout='fixed'
-            objectFit='contain'
-          />
-        </a>
-        <a
-          className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
-          href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Image
-            priority
-            alt='Get on Android badge'
-            title='Get it on Android!'
-            src={`/badges/google_play_store_badge.svg`}
-            height='67'
-            width='225'
-            layout='fixed'
-            objectFit='contain'
-          />
-        </a>
-      </div>
+      {storeBadges}
 
       <a
         className='translate mb-20 rounded-xl bg-gray-800 p-4 shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none'
@@ -160,6 +164,26 @@ const Home = () => {
           </figure>
         ))}
       </div>
+
+      {storeBadges}
+
+      <a
+        className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
+        href='https://www.buymeacoffee.com/tommychow'
+        target='_blank'
+        rel='noreferrer'
+      >
+        <Image
+          priority
+          alt='Buy me a coffee badge'
+          title='Support the App!'
+          src={`/badges/bmc-button.svg`}
+          height='67'
+          width='225'
+          layout='fixed'
+          objectFit='contain'
+        />
+      </a>
     </Layout>
   );
 };
