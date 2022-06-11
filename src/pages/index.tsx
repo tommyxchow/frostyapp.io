@@ -142,7 +142,7 @@ const Home = () => {
         View source on GitHub
       </a>
 
-      <div className='mb-12 flex max-w-screen-2xl flex-col sm:grid md:grid-cols-2 lg:grid-cols-3'>
+      <div className='mb-20 flex max-w-screen-2xl flex-col sm:grid md:grid-cols-2 lg:grid-cols-3'>
         {images.map((imageName, index) => (
           <figure
             key={imageName}
@@ -168,7 +168,7 @@ const Home = () => {
       {storeBadges}
 
       <a
-        className='translate drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
+        className='translate mb-20 drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
         href='https://www.buymeacoffee.com/tommychow'
         target='_blank'
         rel='noreferrer'
