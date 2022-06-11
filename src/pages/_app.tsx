@@ -30,10 +30,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link
           rel='mask-icon'
           href='/favicons/safari-pinned-tab.svg'
-          color='#5bbad5'
+          color='#9146ff'
         />
         <link rel='shortcut icon' href='/favicons/favicon.ico' />
-        <meta name='msapplication-TileColor' content='#9146FF' />
+        <meta name='msapplication-TileColor' content='#9146ff' />
         <meta
           name='msapplication-config'
           content='/favicons/browserconfig.xml'
@@ -64,6 +64,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           name='twitter:image'
           content='https://www.frostyapp.io/ogimage.png'
         />
+
+        <meta name='apple-itunes-app' content='app-id=1603987585' />
       </Head>
       <Component {...pageProps} />
     </>
