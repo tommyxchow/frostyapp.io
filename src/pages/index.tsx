@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import Layout from '../components/layout';
-import { repoLink } from '../constants';
-import { FaGithub } from 'react-icons/fa';
-import SectionContainer from '../components/section-container';
 import Link from 'next/link';
+import { FaGithub, FaQuestionCircle, FaScroll } from 'react-icons/fa';
+import Layout from '../components/layout';
+import SectionContainer from '../components/section-container';
+import { repoLink } from '../constants';
 
 const Home = () => {
   const images = [
@@ -42,10 +42,10 @@ const Home = () => {
   ];
 
   const storeBadges = (
-    <div className='mb-10 flex w-fit flex-col items-center gap-4'>
+    <div className='flex w-fit flex-col items-center gap-4'>
       <div className='flex items-center gap-2'>
         <a
-          className='relative h-12 w-36 drop-shadow-lg transition active:scale-95 active:drop-shadow-none '
+          className='relative h-11 w-32 drop-shadow-lg transition active:scale-95 active:drop-shadow-none '
           href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
           target='_blank'
           rel='noreferrer'
@@ -60,7 +60,7 @@ const Home = () => {
           />
         </a>
         <a
-          className='relative h-12 w-40 drop-shadow-lg transition active:scale-95 active:drop-shadow-none '
+          className='relative h-11 w-36 drop-shadow-lg transition active:scale-95 active:drop-shadow-none '
           href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
           target='_blank'
           rel='noreferrer'
@@ -76,12 +76,12 @@ const Home = () => {
         </a>
       </div>
       <a
-        className='flex w-full items-center justify-center rounded-xl bg-gray-800 p-4 font-semibold shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none lg:text-lg'
+        className='flex w-full items-center justify-center rounded-xl bg-gray-800 p-4 text-sm font-semibold shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none lg:text-lg'
         href={repoLink}
         target='_blank'
         rel='noreferrer'
       >
-        <FaGithub className='mr-2 text-2xl' />
+        <FaGithub className='mr-2 text-xl' />
         View source on GitHub
       </a>
     </div>
@@ -89,20 +89,9 @@ const Home = () => {
 
   return (
     <Layout description='Free and open-source mobile Twitch client for iOS and Android with BTTV, FFZ, and 7TV support.'>
-      <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 py-10'>
+      <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 py-20'>
         <div className='flex flex-col items-center lg:mr-20'>
-          <h1 className='mb-4 whitespace-nowrap text-center text-2xl font-bold leading-tight lg:text-5xl'>
-            Mobile Twitch client.
-            <br />
-            Free and open-source.
-            <br />
-            BTTV, FFZ, and 7TV support.
-            <br />
-          </h1>
-
-          {storeBadges}
-
-          <div className='m-auto flex w-full justify-center gap-4 overflow-hidden'>
+          <div className='m-auto mb-8 flex w-full justify-center gap-4 overflow-hidden'>
             {['categories', 'channel', 'search'].map((image) => (
               <div key={image} className='relative h-96 w-48 shrink-0'>
                 <Image
@@ -116,6 +105,17 @@ const Home = () => {
               </div>
             ))}
           </div>
+
+          <h1 className='mb-8 text-center text-2xl font-bold leading-tight lg:text-5xl'>
+            Mobile Twitch client.
+            <br />
+            Free and open-source.
+            <br />
+            BTTV, FFZ, and 7TV support.
+            <br />
+          </h1>
+
+          {storeBadges}
         </div>
       </div>
 
@@ -135,7 +135,7 @@ const Home = () => {
         </div>
       </SectionContainer>
 
-      <div className='m-auto flex w-full justify-center gap-4 overflow-hidden py-20'>
+      <div className='m-auto flex w-full justify-center gap-4 overflow-hidden py-10'>
         {['emote', 'settings', 'followed'].map((image) => (
           <div key={image} className='relative h-96 w-48 shrink-0'>
             <Image
@@ -175,10 +175,16 @@ const Home = () => {
       <SectionContainer header='More'>
         <div className='flex gap-4'>
           <Link href='/faq'>
-            <a>FAQ</a>
+            <a className='flex items-center gap-2 whitespace-nowrap rounded-xl bg-twitch-purple bg-opacity-30 px-6 py-4'>
+              <FaQuestionCircle />
+              FAQ
+            </a>
           </Link>
           <Link href='/changelog'>
-            <a>Changelog</a>
+            <a className='flex items-center gap-2 whitespace-nowrap rounded-xl bg-twitch-purple bg-opacity-30 px-6 py-4'>
+              <FaScroll />
+              Changelog
+            </a>
           </Link>
         </div>
       </SectionContainer>

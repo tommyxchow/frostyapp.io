@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
-import { repoLink } from '../constants';
 
 const Layout = (props: LayoutProps) => {
   const routes = ['FAQ', 'Changelog'];
@@ -14,7 +13,7 @@ const Layout = (props: LayoutProps) => {
         <meta name='description' content={props.description} />
       </Head>
 
-      <header className='flex items-center justify-between bg-twitch-purple p-10 text-sm lg:text-2xl'>
+      <header className='flex items-center justify-between bg-twitch-purple p-4 text-sm lg:text-2xl'>
         <Link href='/'>
           <a className='flex items-center'>
             <div className='relative mr-2 h-8 w-8 lg:h-10 lg:w-10'>
@@ -47,7 +46,7 @@ const Layout = (props: LayoutProps) => {
 
       <main className='min-h-screen'>{props.children}</main>
 
-      <footer className='flex h-40 flex-col items-center justify-center gap-6 bg-gradient-to-b from-neutral-900 to-twitch-purple pb-8'>
+      <footer className='flex flex-col items-center justify-center gap-6 p-8'>
         <p className='text-sm'>
           Designed & Developed by{' '}
           <a
