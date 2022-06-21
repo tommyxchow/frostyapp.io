@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Frosty for Twitch</title>
+        <title>Frosty</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
 
         <link

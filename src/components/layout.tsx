@@ -1,38 +1,54 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
+import { FaGithub } from 'react-icons/fa';
 import { repoLink } from '../constants';
 
 const Layout = (props: LayoutProps) => {
+  const routes = ['FAQ', 'Changelog'];
+
   return (
-    <div className='bg-gradient-to-b from-twitch-purple to-black'>
+    <div className='bg-neutral-900'>
       <Head>
         <meta name='description' content={props.description} />
       </Head>
 
-      <main className='flex min-h-screen flex-col items-center p-8 pt-24'>
-        {props.children}
-      </main>
+      <header className='flex items-center justify-between bg-twitch-purple p-10 text-sm lg:text-2xl'>
+        <Link href='/'>
+          <a className='flex items-center'>
+            <div className='relative mr-2 h-8 w-8 lg:h-10 lg:w-10'>
+              <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
+            </div>
+            <h1 className='font-semibold'>Frosty</h1>
+          </a>
+        </Link>
 
-      <footer className='flex flex-col items-center gap-6 pb-8 opacity-50'>
-        <div className='flex flex-row justify-center gap-6'>
-          <a
-            className='hover:underline'
-            target='_blank'
-            rel='noreferrer'
-            href={repoLink}
-          >
-            GitHub
-          </a>
-          <a
-            className='hover:underline'
-            target='_blank'
-            rel='noreferrer'
-            href='https://privacypolicies.com/live/095b4264-31b1-4280-837e-5843abde8b16'
-          >
-            Privacy Policy
-          </a>
-        </div>
-        <p className='text-sm font-light'>
+        <nav>
+          <ul className='flex items-center gap-4 font-semibold'>
+            {routes.map((route) => (
+              <li key={route}>
+                <Link href={route.toLowerCase()}>
+                  <a>{route}</a>
+                </Link>
+              </li>
+            ))}
+            <a
+              className='text-xl lg:text-3xl'
+              href='https://github.com/tommyxchow/frosty'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FaGithub />
+            </a>
+          </ul>
+        </nav>
+      </header>
+
+      <main className='min-h-screen'>{props.children}</main>
+
+      <footer className='flex h-40 flex-col items-center justify-center gap-6 bg-gradient-to-b from-neutral-900 to-twitch-purple pb-8'>
+        <p className='text-sm'>
           Designed & Developed by{' '}
           <a
             className='hover:underline'
