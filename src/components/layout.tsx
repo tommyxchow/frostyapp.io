@@ -14,17 +14,25 @@ const Layout = (props: LayoutProps) => {
         <meta name='description' content={props.description} />
       </Head>
 
-      <header className='flex items-center justify-between bg-twitch-purple p-4 lg:p-8 lg:text-xl xl:text-2xl'>
+      <header className='flex items-center justify-between bg-twitch-purple p-4 xl:p-8'>
         <Link href='/'>
           <a className='flex items-center'>
-            <div className='relative mr-2 h-6 w-6 lg:h-8 lg:w-8 xl:h-10 xl:w-10'>
+            <div className='relative mr-2 h-8 w-8 xl:h-12 xl:w-12'>
               <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
             </div>
-            <h1 className='font-semibold'>Frosty</h1>
+            <h1 className='text-2xl font-semibold xl:text-4xl'>Frosty</h1>
           </a>
         </Link>
 
-        <nav>
+        <a
+          className='text-2xl xl:text-4xl'
+          href='https://github.com/tommyxchow/frosty'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FaGithub />
+        </a>
+        {/* <nav>
           <ul className='flex items-center gap-4 font-semibold xl:gap-8'>
             {routes.map((route) => (
               <li key={route}>
@@ -33,22 +41,14 @@ const Layout = (props: LayoutProps) => {
                 </Link>
               </li>
             ))}
-            <a
-              className='text-xl lg:text-2xl xl:text-3xl'
-              href='https://github.com/tommyxchow/frosty'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <FaGithub />
-            </a>
           </ul>
-        </nav>
+        </nav> */}
       </header>
 
       <main className='min-h-screen'>{props.children}</main>
 
       <footer className='flex flex-col items-center justify-center gap-8 p-8 pt-32'>
-        <ul className='flex flex-col items-center gap-4 sm:flex-row sm:gap-8'>
+        <ul className='flex flex-col items-center gap-4 text-sm sm:flex-row sm:gap-8 xl:text-base'>
           <li>
             <a
               className='font-medium hover:underline'
@@ -59,16 +59,11 @@ const Layout = (props: LayoutProps) => {
               Contact
             </a>
           </li>
-          <li>
-            <a
-              className='font-medium hover:underline'
-              href='mailto:contact@frostyapp.io'
-              target='_blank'
-              rel='noreferrer'
-            >
-              FAQ
-            </a>
-          </li>
+          {/* <li>
+            <Link href='/faq'>
+              <a className='font-medium hover:underline'>FAQ</a>
+            </Link>
+          </li> */}
           <li>
             <a
               className='font-medium hover:underline'
@@ -79,11 +74,11 @@ const Layout = (props: LayoutProps) => {
               GitHub
             </a>
           </li>
-          <li>
+          {/* <li>
             <Link href='/privacy-policy'>
               <a className='font-medium hover:underline'>Privacy Policy</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <a
               className='font-medium hover:underline'

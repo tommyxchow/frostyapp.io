@@ -93,7 +93,7 @@ const Home = () => {
 
   return (
     <Layout description='Free and open-source mobile Twitch client for iOS and Android with BTTV, FFZ, and 7TV support.'>
-      <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 py-10 xl:py-20'>
+      <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 pt-12 pb-20 xl:pt-20'>
         <div className='m-auto flex max-w-screen-2xl flex-col items-center xl:flex-row-reverse xl:justify-evenly xl:p-8'>
           <div className='m-auto mb-8 flex w-full justify-center gap-4 overflow-hidden xl:hidden'>
             {topImages.map((image, index) => (
