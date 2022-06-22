@@ -14,10 +14,10 @@ const Layout = (props: LayoutProps) => {
         <meta name='description' content={props.description} />
       </Head>
 
-      <header className='flex items-center justify-between bg-twitch-purple p-4 text-sm xl:p-8 xl:text-2xl'>
+      <header className='flex items-center justify-between bg-twitch-purple p-4 lg:text-xl xl:p-8 xl:text-2xl'>
         <Link href='/'>
           <a className='flex items-center'>
-            <div className='relative mr-2 h-8 w-8 xl:h-10 xl:w-10'>
+            <div className='relative mr-2 h-6 w-6 lg:h-8 lg:w-8 xl:h-10 xl:w-10'>
               <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
             </div>
             <h1 className='font-semibold'>Frosty</h1>
@@ -34,7 +34,7 @@ const Layout = (props: LayoutProps) => {
               </li>
             ))} */}
             <a
-              className='text-xl xl:text-3xl'
+              className='text-xl lg:text-2xl xl:text-3xl'
               href='https://github.com/tommyxchow/frosty'
               target='_blank'
               rel='noreferrer'
@@ -48,7 +48,7 @@ const Layout = (props: LayoutProps) => {
       <main className='min-h-screen'>{props.children}</main>
 
       <footer className='flex flex-col items-center justify-center gap-8 p-8'>
-        <ul className='flex flex-col items-center gap-4 xl:flex-row xl:gap-8'>
+        <ul className='flex flex-col items-center gap-4 sm:flex-row xl:gap-8'>
           <li>
             <a
               className='font-medium hover:underline'

@@ -37,7 +37,7 @@ const Home = () => {
     <div className='flex w-fit flex-col items-center gap-4'>
       <div className='flex items-center gap-2'>
         <a
-          className='relative h-11 w-32 drop-shadow-lg transition active:scale-95 active:drop-shadow-none xl:h-20 xl:w-56'
+          className='relative h-11 w-32 drop-shadow-lg transition active:scale-95 active:drop-shadow-none sm:h-14 sm:w-44 lg:h-16 lg:w-48 xl:h-20 xl:w-56'
           href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
           target='_blank'
           rel='noreferrer'
@@ -52,7 +52,7 @@ const Home = () => {
           />
         </a>
         <a
-          className='relative h-11 w-36 drop-shadow-lg transition active:scale-95 active:drop-shadow-none xl:h-20 xl:w-60'
+          className='relative h-11 w-36 drop-shadow-lg transition active:scale-95 active:drop-shadow-none sm:h-14 sm:w-48 lg:h-16 lg:w-56 xl:h-20 xl:w-60'
           href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
           target='_blank'
           rel='noreferrer'
@@ -68,12 +68,12 @@ const Home = () => {
         </a>
       </div>
       <a
-        className='flex w-full items-center justify-center rounded-xl bg-gray-800 p-4 text-sm font-semibold shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none xl:text-xl'
+        className='flex w-full items-center justify-center rounded-xl bg-gray-800 p-4 text-sm font-semibold shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none sm:text-base lg:text-lg xl:text-xl'
         href={repoLink}
         target='_blank'
         rel='noreferrer'
       >
-        <FaGithub className='mr-2 text-xl xl:text-3xl' />
+        <FaGithub className='mr-2 text-xl sm:text-2xl xl:text-3xl' />
         View source on GitHub
       </a>
     </div>
@@ -116,7 +116,7 @@ const Home = () => {
           </div>
 
           <div className='flex flex-col items-center xl:items-start'>
-            <h1 className='mb-8 text-center text-2xl font-bold leading-normal xl:mr-20 xl:whitespace-nowrap xl:text-start xl:text-5xl xl:leading-tight'>
+            <h1 className='mb-8 text-center text-2xl font-bold leading-normal sm:text-3xl lg:text-4xl xl:mr-20 xl:whitespace-nowrap xl:text-start xl:text-5xl xl:leading-tight'>
               Mobile Twitch client.
               <br />
               Free and open-source.
@@ -131,7 +131,7 @@ const Home = () => {
       </div>
 
       <SectionContainer header='Finally, third-party emotes on mobile'>
-        <p className=' text-center font-semibold sm:w-3/4 md:w-3/5 lg:w-1/2 xl:w-4/5 xl:text-4xl'>
+        <p className='text-center font-semibold sm:text-xl md:w-4/5 lg:text-2xl xl:text-4xl'>
           Frosty is an app built from the ground up that brings emotes from
           BetterTTV, FrankerFaceZ, and 7TV — popular third-party extensions for
           Twitch used by millions — to both iOS and Android.
@@ -148,7 +148,7 @@ const Home = () => {
           <ul className='flex flex-col items-center'>
             {features.map((feature) => (
               <li className='mb-2 xl:mb-4' key={feature}>
-                <p className='text-center font-semibold leading-normal text-neutral-100 xl:text-4xl'>
+                <p className='text-center font-semibold leading-normal text-neutral-100 sm:text-xl lg:text-2xl xl:text-4xl'>
                   {feature}
                 </p>
               </li>
