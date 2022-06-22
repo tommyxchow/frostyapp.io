@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { FaGithub, FaQuestionCircle, FaScroll } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import Layout from '../components/layout';
 import SectionContainer from '../components/section-container';
 import { repoLink } from '../constants';
@@ -82,7 +81,7 @@ const Home = () => {
 
   return (
     <Layout description='Free and open-source mobile Twitch client for iOS and Android with BTTV, FFZ, and 7TV support.'>
-      <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 py-20'>
+      <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 py-10 xl:py-20'>
         <div className='m-auto flex max-w-screen-2xl flex-col items-center xl:flex-row-reverse xl:justify-evenly xl:p-8'>
           <div className='m-auto mb-8 flex w-full justify-center gap-4 overflow-hidden xl:hidden'>
             {[
@@ -131,19 +130,32 @@ const Home = () => {
         </div>
       </div>
 
-      <SectionContainer header='Featuring'>
+      <SectionContainer header='Finally, third-party emotes on mobile'>
+        <p className=' text-center font-semibold sm:w-3/4 md:w-3/5 lg:w-1/2 xl:w-4/5 xl:text-4xl'>
+          Frosty is an app built from the ground up that brings emotes from
+          BetterTTV, FrankerFaceZ, and 7TV — popular third-party extensions for
+          Twitch used by millions — to both iOS and Android.
+          <br />
+          <br />
+          Gone are the days of seeing random and meaningless walls of text in
+          chat. Now you&apos;ll be able to see all your favorite channels&apos;
+          emotes and GIFs in chat!
+        </p>
+      </SectionContainer>
+
+      <SectionContainer header='Features'>
         <div className='relative'>
           <ul className='flex flex-col items-center'>
             {features.map((feature) => (
-              <li className='mb-4' key={feature}>
-                <p className='text-center font-semibold leading-normal text-neutral-100 xl:text-left xl:text-4xl'>
+              <li className='mb-2 xl:mb-4' key={feature}>
+                <p className='text-center font-semibold leading-normal text-neutral-100 xl:text-4xl'>
                   {feature}
                 </p>
               </li>
             ))}
           </ul>
 
-          <div className='absolute bottom-0 h-40 w-full bg-gradient-to-b from-transparent to-neutral-900'></div>
+          <div className='absolute bottom-0 h-1/2 w-full bg-gradient-to-b from-transparent to-neutral-900'></div>
         </div>
       </SectionContainer>
 
@@ -165,7 +177,7 @@ const Home = () => {
         ))}
       </div>
 
-      <SectionContainer header='Check it out now'>
+      <SectionContainer header='Download now for free'>
         {storeBadges}
       </SectionContainer>
 

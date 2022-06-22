@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
+import { repoLink } from '../constants';
 
 const Layout = (props: LayoutProps) => {
   const routes = ['FAQ', 'Changelog'];
@@ -46,8 +47,45 @@ const Layout = (props: LayoutProps) => {
 
       <main className='min-h-screen'>{props.children}</main>
 
-      <footer className='flex flex-col items-center justify-center gap-6 p-8'>
-        <p className='text-center text-sm'>
+      <footer className='flex flex-col items-center justify-center gap-8 p-8'>
+        <ul className='flex flex-col items-center gap-4 xl:flex-row xl:gap-8'>
+          <li>
+            <a
+              className='font-medium hover:underline'
+              href='mailto:contact@frostyapp.io'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Contact
+            </a>
+          </li>
+          <li>
+            <a
+              className='font-medium hover:underline'
+              href={repoLink}
+              target='_blank'
+              rel='noreferrer'
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <Link href='/privacy-policy'>
+              <a className='font-medium hover:underline'>Privacy Policy</a>
+            </Link>
+          </li>
+          <li>
+            <a
+              className='font-medium hover:underline'
+              href='https://buymeacoffee.com/tommychow'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Support the App ❤️
+            </a>
+          </li>
+        </ul>
+        <p className='text-center text-sm text-neutral-400'>
           Designed & Developed by{' '}
           <a
             className='hover:underline'
