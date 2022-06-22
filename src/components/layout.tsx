@@ -1,38 +1,96 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
+import { FaGithub } from 'react-icons/fa';
 import { repoLink } from '../constants';
 
 const Layout = (props: LayoutProps) => {
+  const routes = ['FAQ', 'Changelog'];
+
   return (
-    <div className='bg-gradient-to-b from-twitch-purple to-black'>
+    <div className='bg-neutral-900'>
       <Head>
         <meta name='description' content={props.description} />
       </Head>
 
-      <main className='flex min-h-screen flex-col items-center p-8 pt-24'>
-        {props.children}
-      </main>
+      <header className='flex items-center justify-between bg-twitch-purple p-4 xl:p-8'>
+        <Link href='/'>
+          <a className='flex items-center'>
+            <div className='relative mr-2 h-8 w-8 xl:h-12 xl:w-12'>
+              <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
+            </div>
+            <h1 className='text-2xl font-semibold xl:text-4xl'>Frosty</h1>
+          </a>
+        </Link>
 
-      <footer className='flex flex-col items-center gap-6 pb-8 opacity-50'>
-        <div className='flex flex-row justify-center gap-6'>
-          <a
-            className='hover:underline'
-            target='_blank'
-            rel='noreferrer'
-            href={repoLink}
-          >
-            GitHub
-          </a>
-          <a
-            className='hover:underline'
-            target='_blank'
-            rel='noreferrer'
-            href='https://privacypolicies.com/live/095b4264-31b1-4280-837e-5843abde8b16'
-          >
-            Privacy Policy
-          </a>
-        </div>
-        <p className='text-sm font-light'>
+        <a
+          className='text-2xl xl:text-4xl'
+          href='https://github.com/tommyxchow/frosty'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FaGithub />
+        </a>
+        {/* <nav>
+          <ul className='flex items-center gap-4 font-semibold xl:gap-8'>
+            {routes.map((route) => (
+              <li key={route}>
+                <Link href={route.toLowerCase()}>
+                  <a>{route}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav> */}
+      </header>
+
+      <main className='min-h-screen'>{props.children}</main>
+
+      <footer className='flex flex-col items-center justify-center gap-8 p-8 pt-32'>
+        <ul className='flex flex-col items-center gap-4 text-sm sm:flex-row sm:gap-8 xl:text-base'>
+          <li>
+            <a
+              className='font-medium hover:underline'
+              href='mailto:contact@frostyapp.io'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Contact
+            </a>
+          </li>
+          {/* <li>
+            <Link href='/faq'>
+              <a className='font-medium hover:underline'>FAQ</a>
+            </Link>
+          </li> */}
+          <li>
+            <a
+              className='font-medium hover:underline'
+              href={repoLink}
+              target='_blank'
+              rel='noreferrer'
+            >
+              GitHub
+            </a>
+          </li>
+          {/* <li>
+            <Link href='/privacy-policy'>
+              <a className='font-medium hover:underline'>Privacy Policy</a>
+            </Link>
+          </li> */}
+          <li>
+            <a
+              className='font-medium hover:underline'
+              href='https://buymeacoffee.com/tommychow'
+              target='_blank'
+              rel='noreferrer'
+            >
+              ❤️ Support Frosty ❤️
+            </a>
+          </li>
+        </ul>
+        <p className='text-center text-sm text-neutral-400'>
           Designed & Developed by{' '}
           <a
             className='hover:underline'
