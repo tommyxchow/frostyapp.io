@@ -5,30 +5,42 @@ import SectionContainer from '../components/section-container';
 import { repoLink } from '../constants';
 
 const Home = () => {
-  const images = ['followed', 'settings', 'search', 'emote', 'categories'];
+  const topImages = ['followed-ios', 'channel-ios', 'search-ios'];
+  const topImagesAlt = [
+    'followed streams tab.',
+    "channel view with xQc's video stream and chat.",
+    'search tab with results from searching "lirik".',
+  ];
 
-  const titles = [
-    'Top Categories',
-    'Followed Streams',
-    'Search',
-    'Channel',
-    'Emote Menu',
-    'Settings',
+  const centerImages = [
+    'categories',
+    'search',
+    'emote',
+    'settings',
+    'followed',
+  ];
+  const centerImagesAlt = [
+    'top categories tab.',
+    'search tab with results from searching "jerma985".',
+    "channel view with MOONMOON's video stream and chat and the emote menu opened.",
+    'settings section with the chat settings expanded.',
+    'followed streams tab.',
   ];
 
   const features = [
-    'Support for BetterTTV, FrankerFaceZ, and 7TV emotes/badges',
+    'Support for BetterTTV, FrankerFaceZ, and 7TV emotes and badges',
     'Browse followed streams, top streams, and top categories',
+    'Autocomplete for emotes and user mentions',
     'Light, dark, and black (OLED) themes',
     'Search for channels and categories',
+    'See and filter chatters in a channel',
     'Picture-in-picture mode (iOS only)',
     'Local chat user message history',
-    'Emote menu and autocomplete',
     'Theater and full-screen mode',
     'Watch live streams with chat',
     'Block and report users',
     'Customizable settings',
-    'Chatters list with filter',
+    'Emote menu',
     'Sleep timer',
     'And more...',
   ];
@@ -84,16 +96,10 @@ const Home = () => {
       <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 py-10 xl:py-20'>
         <div className='m-auto flex max-w-screen-2xl flex-col items-center xl:flex-row-reverse xl:justify-evenly xl:p-8'>
           <div className='m-auto mb-8 flex w-full justify-center gap-4 overflow-hidden xl:hidden'>
-            {[
-              'search-ios',
-              'categories-ios',
-              'emote-ios',
-              'followed-ios',
-              'settings-ios',
-            ].map((image) => (
+            {topImages.map((image, index) => (
               <div key={image} className='relative h-96 w-48 shrink-0'>
                 <Image
-                  alt='Preview'
+                  alt={`iOS screenshot of the ${topImagesAlt[index]}`}
                   src={`/screenshots/${image}.png`}
                   layout='fill'
                   objectFit='contain'
@@ -106,8 +112,8 @@ const Home = () => {
 
           <div className='relative hidden h-[700px] w-[400px] xl:block'>
             <Image
-              alt='Preview'
-              src={`/screenshots/followed.png`}
+              alt={`iOS screenshot of the ${topImagesAlt[1]}`}
+              src={`/screenshots/channel-ios.png`}
               layout='fill'
               objectFit='contain'
               quality={100}
@@ -143,6 +149,23 @@ const Home = () => {
         </p>
       </SectionContainer>
 
+      <div className='m-auto flex w-full justify-center gap-4 overflow-hidden py-10 xl:py-20'>
+        {centerImages.map((image, index) => (
+          <div
+            key={image}
+            className='relative h-96 w-48 shrink-0 xl:h-[700px] xl:w-[400px]'
+          >
+            <Image
+              alt={`Android screenshot of the ${centerImagesAlt[index]}`}
+              src={`/screenshots/${image}-android.png`}
+              layout='fill'
+              objectFit='contain'
+              quality={100}
+            />
+          </div>
+        ))}
+      </div>
+
       <SectionContainer header='Features'>
         <div className='relative'>
           <ul className='flex flex-col items-center'>
@@ -158,24 +181,6 @@ const Home = () => {
           <div className='absolute bottom-0 h-1/2 w-full bg-gradient-to-b from-transparent to-neutral-900'></div>
         </div>
       </SectionContainer>
-
-      <div className='m-auto flex w-full justify-center gap-4 overflow-hidden py-10'>
-        {images.map((image) => (
-          <div
-            key={image}
-            className='relative h-96 w-48 shrink-0 xl:h-[700px] xl:w-[400px]'
-          >
-            <Image
-              alt='Preview'
-              src={`/screenshots/${image}-android.png`}
-              layout='fill'
-              objectFit='contain'
-              quality={100}
-              priority
-            />
-          </div>
-        ))}
-      </div>
 
       <SectionContainer header='Download now for free'>
         {storeBadges}
