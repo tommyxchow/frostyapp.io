@@ -14,7 +14,7 @@ const Layout = (props: LayoutProps) => {
         <meta name='description' content={props.description} />
       </Head>
 
-      <header className='flex items-center justify-between bg-twitch-purple p-4 xl:p-8'>
+      <header className='absolute flex w-full items-center justify-between p-4 xl:p-8'>
         <Link href='/'>
           <a className='flex items-center'>
             <div className='relative mr-2 h-8 w-8 xl:h-12 xl:w-12'>
@@ -91,7 +91,7 @@ const Layout = (props: LayoutProps) => {
           </li>
         </ul>
         <p className='text-center text-sm text-neutral-400'>
-          Designed & Developed by{' '}
+          Designed and developed by{' '}
           <a
             className='hover:underline'
             target='_blank'
