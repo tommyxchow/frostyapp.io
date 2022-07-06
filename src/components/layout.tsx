@@ -91,7 +91,7 @@ const Layout = (props: LayoutProps) => {
           </li>
         </ul>
         <p className='text-center text-sm text-neutral-400'>
-          Designed & Developed by{' '}
+          Designed and developed by{' '}
           <a
             className='hover:underline'
             target='_blank'

@@ -36,7 +36,7 @@ const Home = () => {
     'See and filter chatters in a channel',
     'Picture-in-picture mode (iOS only)',
     'Local chat user message history',
-    'Theater and full-screen mode',
+    'Theater and fullscreen mode',
     'Watch live streams with chat',
     'Block and report users',
     'Customizable settings',
@@ -92,7 +92,7 @@ const Home = () => {
   );
 
   return (
-    <Layout description='Free and open-source mobile Twitch client for iOS and Android with BTTV, FFZ, and 7TV support.'>
+    <Layout description='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party extensions for Twitch used by millions.'>
       <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 pt-32 pb-20 xl:pt-40 xl:pb-28'>
         <div className='m-auto flex max-w-screen-2xl flex-col items-center xl:flex-row-reverse xl:justify-evenly xl:p-8'>
           <div className='m-auto mb-8 flex w-full justify-center gap-4 overflow-hidden xl:hidden'>
@@ -123,7 +123,7 @@ const Home = () => {
 
           <div className='flex flex-col items-center xl:items-start'>
             <h1 className='mb-8 text-center text-2xl font-bold leading-normal sm:text-3xl lg:text-4xl xl:mr-20 xl:whitespace-nowrap xl:text-start xl:text-5xl xl:leading-tight'>
-              Mobile Twitch client.
+              Mobile Twitch app.
               <br />
               Free and open-source.
               <br />
@@ -136,16 +136,16 @@ const Home = () => {
         </div>
       </div>
 
-      <SectionContainer header='Finally, third-party emotes on mobile'>
-        <p className='text-center font-semibold sm:text-xl md:w-4/5 lg:text-2xl xl:text-4xl'>
+      <SectionContainer header=''>
+        <p className='max-w-5xl text-center font-semibold sm:text-xl md:w-4/5 lg:text-2xl xl:text-4xl'>
           Frosty is an app built from the ground up that brings emotes from
-          BetterTTV, FrankerFaceZ, and 7TV — popular third-party extensions for
-          Twitch used by millions — to both iOS and Android.
+          BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party
+          extensions for Twitch used by millions — to both iOS and Android.
           <br />
           <br />
           Gone are the days of seeing random and meaningless walls of text in
-          chat. Now you&apos;ll be able to see all your favorite channels&apos;
-          emotes and GIFs in chat!
+          chat. Now you&apos;ll be able to see and chat with all your favorite
+          channels&apos; emotes and GIFs!
         </p>
       </SectionContainer>
 
