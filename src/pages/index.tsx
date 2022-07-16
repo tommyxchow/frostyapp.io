@@ -1,8 +1,15 @@
 import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
 import Layout from '../components/layout';
+import ExternalLink from '../components/link';
 import SectionContainer from '../components/section-container';
-import { repoLink } from '../constants';
+import {
+  bttvLink,
+  ffzLink,
+  repoLink,
+  sevenTvLink,
+  twitchLink,
+} from '../constants';
 
 const Home = () => {
   const topImages = ['followed-ios', 'channel-ios', 'search-ios'];
@@ -136,15 +143,21 @@ const Home = () => {
         </div>
       </div>
 
-      <SectionContainer header=''>
+      <SectionContainer header='The better mobile Twitch experience'>
         <p className='max-w-5xl text-center font-semibold sm:text-xl md:w-4/5 lg:text-2xl xl:text-4xl'>
-          Frosty is an app built from the ground up that brings emotes from
-          BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party
-          extensions for Twitch used by millions — to both iOS and Android.
+          Frosty is a mobile app built from the ground up aimed at enhancing the
+          mobile <ExternalLink title='Twitch.tv' url={twitchLink} /> experience.
+          <br />
+          <br />
+          It brings quality-of-life features and third-party emotes from{' '}
+          <ExternalLink title='BetterTTV (BTTV)' url={bttvLink} />,{' '}
+          <ExternalLink title='FrankerFaceZ (FFZ)' url={ffzLink} />, and{' '}
+          <ExternalLink title='7TV' url={sevenTvLink} /> — popular extensions
+          for Twitch used by millions — to both iOS and Android.
           <br />
           <br />
           Gone are the days of seeing random and meaningless walls of text in
-          chat. Now you&apos;ll be able to see and chat with all your favorite
+          chat. Now you&apos;ll be able to chat with and see all your favorite
           channels&apos; emotes and GIFs!
         </p>
       </SectionContainer>
@@ -185,43 +198,6 @@ const Home = () => {
       <SectionContainer header='Download now for free'>
         {storeBadges}
       </SectionContainer>
-
-      {/* <SectionContainer header='Support the app ❤️'>
-        <a
-          className='drop-shadow-lg transition active:scale-95 active:drop-shadow-none'
-          href='https://www.buymeacoffee.com/tommychow'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Image
-            priority
-            alt='Buy me a coffee badge'
-            title='Support the App!'
-            src={`/badges/bmc-button.svg`}
-            height='67'
-            width='225'
-            layout='fixed'
-            objectFit='contain'
-          />
-        </a>
-      </SectionContainer> */}
-
-      {/* <SectionContainer header='More'>
-        <div className='flex gap-4'>
-          <Link href='/faq'>
-            <a className='flex items-center gap-2 whitespace-nowrap rounded-xl bg-twitch-purple bg-opacity-30 px-6 py-4'>
-              <FaQuestionCircle />
-              FAQ
-            </a>
-          </Link>
-          <Link href='/changelog'>
-            <a className='flex items-center gap-2 whitespace-nowrap rounded-xl bg-twitch-purple bg-opacity-30 px-6 py-4'>
-              <FaScroll />
-              Changelog
-            </a>
-          </Link>
-        </div>
-      </SectionContainer> */}
     </Layout>
   );
 };
