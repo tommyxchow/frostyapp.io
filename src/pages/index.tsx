@@ -100,7 +100,7 @@ const Home = () => {
 
   return (
     <Layout description='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party extensions for Twitch used by millions.'>
-      <div className='bg-gradient-to-b from-twitch-purple to-neutral-900 pt-32 pb-20 xl:pt-40 xl:pb-28'>
+      <div className='bg-gradient-to-b from-twitch-purple to-black pt-32 pb-20 xl:pt-40 xl:pb-28'>
         <div className='m-auto flex max-w-screen-2xl flex-col items-center xl:flex-row-reverse xl:justify-evenly xl:p-8'>
           <div className='m-auto mb-8 flex w-full justify-center gap-4 overflow-hidden xl:hidden'>
             {topImages.map((image, index) => (
@@ -146,13 +146,13 @@ const Home = () => {
       <SectionContainer header='The better mobile Twitch experience'>
         <p className='max-w-5xl text-center font-semibold sm:text-xl md:w-4/5 lg:text-2xl xl:text-4xl'>
           Frosty is a mobile app built from the ground up aimed at enhancing the
-          mobile <ExternalLink title='Twitch.tv' url={twitchLink} /> experience.
+          mobile <ExternalLink text='Twitch.tv' href={twitchLink} /> experience.
           <br />
           <br />
           It brings quality-of-life features and third-party emotes from{' '}
-          <ExternalLink title='BetterTTV (BTTV)' url={bttvLink} />,{' '}
-          <ExternalLink title='FrankerFaceZ (FFZ)' url={ffzLink} />, and{' '}
-          <ExternalLink title='7TV' url={sevenTvLink} /> — popular extensions
+          <ExternalLink text='BetterTTV (BTTV)' href={bttvLink} />,{' '}
+          <ExternalLink text='FrankerFaceZ (FFZ)' href={ffzLink} />, and{' '}
+          <ExternalLink text='7TV' href={sevenTvLink} /> — popular extensions
           for Twitch used by millions — to both iOS and Android.
           <br />
           <br />
@@ -180,19 +180,15 @@ const Home = () => {
       </div>
 
       <SectionContainer header='Features'>
-        <div className='relative'>
-          <ul className='flex flex-col items-center'>
-            {features.map((feature) => (
-              <li className='mb-2 xl:mb-4' key={feature}>
-                <p className='text-center font-semibold leading-normal text-neutral-100 sm:text-xl lg:text-2xl xl:text-4xl'>
-                  {feature}
-                </p>
-              </li>
-            ))}
-          </ul>
-
-          <div className='absolute bottom-0 h-1/2 w-full bg-gradient-to-b from-transparent to-neutral-900'></div>
-        </div>
+        <ul className='flex flex-col items-center bg-gradient-to-b from-neutral-200 to-black bg-clip-text'>
+          {features.map((feature) => (
+            <li className='mb-2 xl:mb-4' key={feature}>
+              <p className='text-center font-semibold leading-normal text-transparent sm:text-xl lg:text-2xl xl:text-4xl'>
+                {feature}
+              </p>
+            </li>
+          ))}
+        </ul>
       </SectionContainer>
 
       <SectionContainer header='Download now for free'>
