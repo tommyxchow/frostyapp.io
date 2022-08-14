@@ -1,8 +1,12 @@
 import Image from 'next/image';
-import { FaGithub } from 'react-icons/fa';
-import Layout from '../components/layout';
-import ExternalLink from '../components/link';
-import SectionContainer from '../components/section-container';
+import { FaCode, FaGithub, FaTv, FaWalking } from 'react-icons/fa';
+import { SiAppstore, SiGoogleplay } from 'react-icons/si';
+import ExternalLink from '../components/ExternalLink';
+
+import FeatureCard from '../components/FeatureCard';
+import Layout from '../components/Layout';
+import SectionContainer from '../components/SectionContainer';
+import WhyCard from '../components/WhyCard';
 import {
   bttvLink,
   ffzLink,
@@ -12,146 +16,140 @@ import {
 } from '../constants';
 
 const Home = () => {
-  const topImages = ['followed-ios', 'channel-ios', 'search-ios'];
-  const topImagesAlt = [
-    'followed streams tab.',
-    "channel view with xQc's video stream and chat.",
-    'search tab with results from searching "lirik".',
+  const coreFeatures = [
+    {
+      featureTitle: 'Browse followed streams',
+      featureDescription:
+        'Instantly access your followed streams when you launch Frosty.',
+      image: {
+        path: '/screenshots/followed-ios.png',
+        alt: 'iOS screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
+      },
+    },
+    {
+      featureTitle: 'Explore top channels and categories',
+      featureDescription:
+        "Discover what's trending by exploring top streams and categories across Twitch.",
+      image: {
+        path: '/screenshots/categories-android.png',
+        alt: 'Android screenshot of the top categories tab, showing a 2-column grid of category box arts.',
+      },
+    },
+    {
+      featureTitle: 'Search for channels and categories',
+      featureDescription:
+        'Looking for someone or something specific on Twitch? Just search!',
+      image: {
+        path: '/screenshots/search-ios.png',
+        alt: 'iOS screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
+      },
+    },
+    {
+      featureTitle: 'BTTV, FFZ, and 7TV support',
+      featureDescription:
+        'Enjoy full support for BTTV, FFZ, and 7TV emotes and badges in chat, including GIFs.',
+      image: {
+        path: '/screenshots/emote-android.png',
+        alt: "Android screenshot of the channel view with pokelawls's video stream and live chat and the emote menu expanded.",
+      },
+    },
+    {
+      featureTitle: 'Picture-in-picture mode',
+      featureDescription:
+        'Multitask with picture-in-picture mode and never miss a moment on stream!',
+      image: {
+        path: '/screenshots/emote-android.png',
+        alt: 'iOS screenshot of the picture-in-picture window on the bottom right and the Frosty GitHub repo in the background.',
+      },
+    },
+    {
+      featureTitle: 'Customizable settings',
+      featureDescription:
+        'Tweak layouts, adjust font and emote sizes, change themes, and much more.',
+      image: {
+        path: '/screenshots/settings-android.png',
+        alt: 'Android screenshot of the settings section with the chat options expanded.',
+      },
+    },
   ];
 
-  const centerImages = [
-    'categories',
-    'search',
-    'emote',
-    'settings',
-    'followed',
-  ];
-  const centerImagesAlt = [
-    'top categories tab.',
-    'search tab with results from searching "jerma985".',
-    "channel view with MOONMOON's video stream and chat and the emote menu opened.",
-    'settings section with the chat settings expanded.',
-    'followed streams tab.',
-  ];
-
-  const features = [
-    'Support for BetterTTV, FrankerFaceZ, and 7TV emotes and badges',
-    'Browse followed streams, top streams, and top categories',
-    'Autocomplete for emotes and user mentions',
+  const otherFeatures = [
+    'Autocomplete emotes and user mentions',
     'Light, dark, and black (OLED) themes',
-    'Search for channels and categories',
     'See and filter chatters in a channel',
     'Local chat user message history',
-    'Watch live streams with chat',
     'Theater and fullscreen mode',
-    'Picture-in-picture mode',
     'Block and report users',
-    'Customizable settings',
-    'Emote menu',
     'Sleep timer',
-    'And more...',
   ];
 
   const storeBadges = (
-    <div className='flex w-fit flex-col items-center gap-4'>
-      <div className='flex items-center gap-2'>
-        <a
-          className='relative h-11 w-32 drop-shadow-lg transition active:scale-95 active:drop-shadow-none sm:h-14 sm:w-44 lg:h-16 lg:w-48 xl:h-20 xl:w-56'
-          href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Image
-            priority
-            alt='Get on iOS badge'
-            title='Get it on iOS!'
-            src={`/badges/apple_app_store_badge.svg`}
-            layout='fill'
-            objectFit='contain'
-          />
-        </a>
-        <a
-          className='relative h-11 w-36 drop-shadow-lg transition active:scale-95 active:drop-shadow-none sm:h-14 sm:w-48 lg:h-16 lg:w-56 xl:h-20 xl:w-60'
-          href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Image
-            priority
-            alt='Get on Android badge'
-            title='Get it on Android!'
-            src={`/badges/google_play_store_badge.svg`}
-            layout='fill'
-            objectFit='contain'
-          />
-        </a>
-      </div>
+    <div className='flex w-full flex-col items-center gap-4 px-4'>
       <a
-        className='flex w-full items-center justify-center rounded-xl bg-gray-800 p-4 text-sm font-semibold shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none sm:text-base lg:text-lg xl:text-xl'
+        className='flex w-full items-center justify-center rounded-full bg-blue-600 p-4 text-sm font-semibold shadow-lg transition hover:bg-blue-700 active:scale-95 active:shadow-none sm:text-base lg:text-lg xl:text-xl'
         href={repoLink}
         target='_blank'
         rel='noreferrer'
       >
-        <FaGithub className='mr-2 text-xl sm:text-2xl xl:text-3xl' />
+        <SiAppstore className='mr-2 text-2xl xl:text-3xl' />
+        Download on App Store
+      </a>
+      <a
+        className='flex w-full items-center justify-center rounded-full bg-green-600 p-4 text-sm font-semibold shadow-lg transition hover:bg-green-700 active:scale-95 active:shadow-none sm:text-base lg:text-lg xl:text-xl'
+        href={repoLink}
+        target='_blank'
+        rel='noreferrer'
+      >
+        <SiGoogleplay className='mr-2 text-2xl xl:text-3xl' />
+        Download on Google Play
+      </a>
+      <a
+        className='flex w-full items-center justify-center rounded-full bg-gray-800 p-4 text-sm font-semibold shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none sm:text-base lg:text-lg xl:text-xl'
+        href={repoLink}
+        target='_blank'
+        rel='noreferrer'
+      >
+        <FaGithub className='mr-2 text-2xl xl:text-3xl' />
         View source on GitHub
       </a>
     </div>
   );
 
   return (
-    <Layout description='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party extensions for Twitch used by millions.'>
-      <div className='bg-gradient-to-b from-twitch-purple to-black pt-32 pb-20 xl:pt-40 xl:pb-28'>
-        <div className='m-auto flex max-w-screen-2xl flex-col items-center xl:flex-row-reverse xl:justify-evenly xl:p-8'>
-          <div className='m-auto mb-8 flex w-full justify-center gap-4 overflow-hidden xl:hidden'>
-            {topImages.map((image, index) => (
-              <div key={image} className='relative h-96 w-48 shrink-0'>
-                <Image
-                  alt={`iOS screenshot of the ${topImagesAlt[index]}`}
-                  src={`/screenshots/${image}.png`}
-                  layout='fill'
-                  objectFit='contain'
-                  quality={100}
-                  priority
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className='relative hidden h-[700px] w-[400px] xl:block'>
-            <Image
-              alt={`iOS screenshot of the ${topImagesAlt[1]}`}
-              src={`/screenshots/channel-ios.png`}
-              layout='fill'
-              objectFit='contain'
-              quality={100}
-              priority
-            />
-          </div>
-
-          <div className='flex flex-col items-center xl:items-start'>
-            <h1 className='mb-8 text-center text-2xl font-bold leading-normal sm:text-3xl lg:text-4xl xl:mr-20 xl:whitespace-nowrap xl:text-start xl:text-5xl xl:leading-tight'>
-              Mobile Twitch app.
-              <br />
-              Free and open-source.
-              <br />
-              BTTV, FFZ, and 7TV support.
-              <br />
-            </h1>
-
-            {storeBadges}
-          </div>
+    <Layout
+      title='The true mobile Twitch chat experience'
+      description='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party extensions for Twitch used by millions.'
+    >
+      <section className='flex min-h-screen w-full flex-col items-center gap-8 bg-gradient-to-b from-twitch-purple via-black py-32'>
+        <div className='relative h-[calc(100vh/2)] w-full'>
+          <Image
+            alt="iOS screenshot of the channel view with xQc's video stream and chat."
+            src={`/screenshots/channel-ios.png`}
+            layout='fill'
+            objectFit='contain'
+            quality={100}
+            priority
+          />
         </div>
-      </div>
 
-      <SectionContainer header='The better mobile Twitch experience'>
-        <p className='max-w-5xl text-center font-semibold sm:text-xl md:w-4/5 lg:text-2xl xl:text-4xl'>
+        <h1 className='px-4 text-center text-2xl font-bold'>
+          The true mobile Twitch chat experience.
+        </h1>
+        {storeBadges}
+      </section>
+
+      <SectionContainer>
+        <p className='px-4 text-center font-medium'>
           Frosty is a mobile app built from the ground up aimed at enhancing the
-          mobile <ExternalLink text='Twitch.tv' href={twitchLink} /> experience.
+          mobile <ExternalLink text='Twitch.tv' href={twitchLink} /> chat
+          experience.
           <br />
           <br />
-          It brings quality-of-life features and third-party emotes from{' '}
-          <ExternalLink text='BetterTTV (BTTV)' href={bttvLink} />,{' '}
-          <ExternalLink text='FrankerFaceZ (FFZ)' href={ffzLink} />, and{' '}
+          It brings quality-of-life features and, most importantly, third-party
+          emotes from <ExternalLink
+            text='BetterTTV (BTTV)'
+            href={bttvLink}
+          />, <ExternalLink text='FrankerFaceZ (FFZ)' href={ffzLink} />, and{' '}
           <ExternalLink text='7TV' href={sevenTvLink} /> — popular extensions
           for Twitch used by millions — to both iOS and Android.
           <br />
@@ -162,38 +160,60 @@ const Home = () => {
         </p>
       </SectionContainer>
 
-      <div className='m-auto flex w-full justify-center gap-4 overflow-hidden py-10 xl:py-20'>
-        {centerImages.map((image, index) => (
-          <div
-            key={image}
-            className='relative h-96 w-48 shrink-0 xl:h-[700px] xl:w-[400px]'
-          >
-            <Image
-              alt={`Android screenshot of the ${centerImagesAlt[index]}`}
-              src={`/screenshots/${image}-android.png`}
-              layout='fill'
-              objectFit='contain'
-              quality={100}
-            />
-          </div>
-        ))}
-      </div>
+      <SectionContainer header='Made for'>
+        <WhyCard
+          icon={<FaWalking />}
+          user='Newcomers'
+          userColor='text-green-500'
+          description="Discover the vast commmunity of Twitch's most popular channels and categories, no login required."
+        />
+        <WhyCard
+          icon={<FaTv />}
+          user='Twitch.tv regulars'
+          userColor='text-twitch-purple'
+          description='Enjoy an improved Twitch experience with several enhancements. Login with your Twitch account to easily access followed streams and chat with others.'
+        />
+        <WhyCard
+          icon={<FaCode />}
+          user='Developers'
+          userColor='text-blue-500'
+          description='Frosty is a completely open-source project built with Flutter. Contributions are always welcome on the GitHub repo.'
+        />
+      </SectionContainer>
 
       <SectionContainer header='Features'>
-        <ul className='flex flex-col items-center bg-gradient-to-b from-neutral-200 to-black bg-clip-text'>
-          {features.map((feature) => (
-            <li className='mb-2 xl:mb-4' key={feature}>
-              <p className='text-center font-semibold leading-normal text-transparent sm:text-xl lg:text-2xl xl:text-4xl'>
-                {feature}
-              </p>
-            </li>
-          ))}
-        </ul>
+        {coreFeatures.map((feature) => (
+          <FeatureCard
+            key={feature.featureTitle}
+            featureTitle={feature.featureTitle}
+            featureDescription={feature.featureDescription}
+            alt={feature.image.alt}
+            src={feature.image.path}
+          />
+        ))}
+
+        <div className='mt-4 flex flex-col items-center gap-2'>
+          <h2 className='text-lg font-semibold'>And much more...</h2>
+          <ul className='flex flex-col items-center bg-gradient-to-b from-neutral-200 bg-clip-text'>
+            {otherFeatures.map((feature) => (
+              <li className='mb-2 xl:mb-4' key={feature}>
+                <p className='text-center font-semibold leading-normal text-transparent sm:text-xl lg:text-2xl xl:text-4xl'>
+                  {feature}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </SectionContainer>
 
-      <SectionContainer header='Download now for free'>
+      <SectionContainer header='Like what you see?'>
+        <p className='text-center text-sm font-medium text-neutral-300'>
+          Download Frosty now for free and get started!
+        </p>
         {storeBadges}
       </SectionContainer>
+
+      {/* <SectionContainer header='More'>FAQ</SectionContainer> */}
     </Layout>
   );
 };

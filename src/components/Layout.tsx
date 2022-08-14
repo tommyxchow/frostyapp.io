@@ -7,11 +7,13 @@ import { repoLink } from '../constants';
 import ExternalLink from './ExternalLink';
 
 const Layout = (props: LayoutProps) => {
-  const routes = ['FAQ', 'Changelog'];
+  const routes = ['FAQ', 'Changelog', 'Donate'];
 
   return (
     <>
       <Head>
+        <title>{props.title} | Frosty for Twitch</title>
+
         <meta name='description' content={props.description} />
       </Head>
 
@@ -25,47 +27,51 @@ const Layout = (props: LayoutProps) => {
           </a>
         </Link>
 
-        <a
-          className='text-2xl xl:text-4xl'
-          href='https://github.com/tommyxchow/frosty'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <FaGithub />
-        </a>
-        {/* <nav>
-          <ul className='flex items-center gap-4 font-semibold xl:gap-8'>
-            {routes.map((route) => (
-              <li key={route}>
-                <Link href={route.toLowerCase()}>
-                  <a>{route}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav> */}
+        <div className='flex items-center gap-8'>
+          {/* <nav>
+            <ul className='flex items-center gap-4 font-semibold xl:gap-8 xl:text-xl'>
+              {routes.map((route) => (
+                <li key={route}>
+                  <Link href={route.toLowerCase()}>
+                    <a>{route}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav> */}
+          <a
+            className='text-2xl xl:text-4xl'
+            href='https://github.com/tommyxchow/frosty'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <FaGithub />
+          </a>
+        </div>
       </header>
 
-      <main className='min-h-screen'>{props.children}</main>
+      <main className='flex min-h-screen flex-col items-center'>
+        {props.children}
+      </main>
 
       <footer className='flex flex-col items-center justify-center gap-8 p-8 pt-32'>
         <ul className='flex flex-col items-center gap-4 text-sm sm:flex-row sm:gap-8 xl:text-base'>
           <li>
             <ExternalLink text='Contact' href='mailto:contact@frostyapp.io' />
           </li>
-          {/* <li>
+          <li>
             <Link href='/faq'>
               <a className='font-medium hover:underline'>FAQ</a>
             </Link>
-          </li> */}
+          </li>
           <li>
             <ExternalLink text='Github' href={repoLink} />
           </li>
-          {/* <li>
+          <li>
             <Link href='/privacy-policy'>
               <a className='font-medium hover:underline'>Privacy Policy</a>
             </Link>
-          </li> */}
+          </li>
           <li>
             <ExternalLink
               text='❤️ Support Frosty ❤️'
@@ -82,8 +88,9 @@ const Layout = (props: LayoutProps) => {
   );
 };
 
-export interface LayoutProps {
+interface LayoutProps {
   children: React.ReactNode;
+  title: string;
   description: string;
 }
 
