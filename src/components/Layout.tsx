@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { repoLink } from '../constants';
-import ExternalLink from './link';
+import ExternalLink from './ExternalLink';
 
 const Layout = (props: LayoutProps) => {
   const routes = ['FAQ', 'Changelog'];
