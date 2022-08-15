@@ -18,8 +18,10 @@ import Layout from '../components/Layout';
 import MadeForCard from '../components/MadeForCard';
 import SectionContainer from '../components/SectionContainer';
 import {
+  appStoreLink,
   bttvLink,
   ffzLink,
+  playStoreLink,
   repoLink,
   sevenTvLink,
   twitchLink,
@@ -114,10 +116,10 @@ const Home = () => {
   ];
 
   const storeBadges = (
-    <div className='flex w-full max-w-lg flex-col items-center gap-4 lg:p-8'>
+    <div className='flex w-full max-w-lg flex-col items-center gap-4 lg:px-8'>
       <a
         className='flex w-full items-center justify-center rounded-full bg-blue-800 p-4 font-semibold shadow-lg transition hover:bg-blue-900 active:scale-95 active:shadow-none lg:text-lg xl:text-xl'
-        href='https://apps.apple.com/us/app/frosty-for-twitch/id1603987585'
+        href={appStoreLink}
         target='_blank'
         rel='noreferrer'
       >
@@ -126,7 +128,7 @@ const Home = () => {
       </a>
       <a
         className='flex w-full items-center justify-center rounded-full bg-green-800 p-4 font-semibold shadow-lg transition hover:bg-green-900 active:scale-95 active:shadow-none lg:text-lg xl:text-xl'
-        href='https://play.google.com/store/apps/details?id=com.tommychow.frosty'
+        href={playStoreLink}
         target='_blank'
         rel='noreferrer'
       >
@@ -184,9 +186,31 @@ const Home = () => {
           <div className='hidden items-center gap-4 lg:flex'>
             <p className='text-xl font-medium text-neutral-300'>Available on</p>
             <div className='flex items-center gap-4 text-3xl'>
-              <SiAppstore className='text-blue-500' />
-              <SiGoogleplay className='text-green-500' />
-              <SiGithub />
+              <a
+                className='transition hover:scale-110 active:scale-90'
+                href={appStoreLink}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <SiAppstore className='text-blue-500' />
+              </a>
+              <a
+                className='transition hover:scale-110 active:scale-90'
+                href={playStoreLink}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <SiGoogleplay className='text-green-500' />
+              </a>
+
+              <a
+                className='transition hover:scale-110 active:scale-90'
+                href={repoLink}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <SiGithub />
+              </a>
             </div>
           </div>
         </section>
@@ -256,7 +280,7 @@ const Home = () => {
         </SectionContainer>
 
         <SectionContainer header='Like what you see?'>
-          <p className='px-8 text-center text-lg font-medium text-neutral-300'>
+          <p className='mb-4 px-8 text-center text-lg font-medium text-neutral-300'>
             Download Frosty now and get started!
           </p>
           {storeBadges}
