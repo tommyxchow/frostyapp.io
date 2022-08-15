@@ -12,8 +12,8 @@ export default function FeatureCard({
 }: FeatureCardProps) {
   return (
     <button
-      className={`sticky flex w-full flex-col items-center gap-2 rounded-lg bg-neutral-800 p-8 transition lg:items-start lg:justify-center lg:bg-transparent lg:hover:bg-neutral-800 ${
-        selected && 'lg:bg-neutral-800 lg:shadow-md'
+      className={`sticky flex w-full select-text flex-col items-center gap-2 rounded-lg bg-neutral-800 p-8 transition lg:items-start lg:justify-center lg:bg-transparent lg:opacity-50 lg:hover:bg-neutral-800 lg:active:scale-95 ${
+        selected && 'lg:bg-neutral-800 lg:opacity-100 lg:shadow-md'
       }`}
       onClick={onClick}
     >
