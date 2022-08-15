@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
+import { SiGithub } from 'react-icons/si';
 import { repoLink } from '../constants';
 import ExternalLink from './ExternalLink';
 
@@ -45,14 +45,12 @@ const Layout = (props: LayoutProps) => {
             target='_blank'
             rel='noreferrer'
           >
-            <FaGithub />
+            <SiGithub />
           </a>
         </div>
       </header>
 
-      <main className='flex min-h-screen flex-col items-center'>
-        {props.children}
-      </main>
+      <main className='min-h-screen'>{props.children}</main>
 
       <footer className='flex flex-col items-center justify-center gap-8 p-8 pt-32'>
         <ul className='flex flex-col items-center gap-4 text-sm sm:flex-row sm:gap-8 xl:text-base'>
