@@ -15,6 +15,7 @@ const Layout = (props: LayoutProps) => {
         <title>{props.title} | Frosty for Twitch</title>
 
         <meta name='description' content={props.description} />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
       <header className='fixed z-50 flex w-full items-center justify-between p-4 backdrop-blur xl:p-8'>
@@ -50,7 +51,9 @@ const Layout = (props: LayoutProps) => {
         </div>
       </header>
 
-      <main className='min-h-screen'>{props.children}</main>
+      <main className='flex min-h-screen flex-col items-center'>
+        {props.children}
+      </main>
 
       <footer className='flex flex-col items-center justify-center gap-8 p-8 pt-32'>
         <ul className='flex flex-col items-center gap-4 text-sm sm:flex-row sm:gap-8 xl:text-base'>

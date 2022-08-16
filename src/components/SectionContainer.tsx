@@ -1,10 +1,14 @@
 import React from 'react';
 
-const SectionContainer = ({ header, children }: SectionContainerProps) => {
+const SectionContainer = ({
+  className,
+  header,
+  children,
+}: SectionContainerProps) => {
   return (
-    <section className='flex w-full flex-col items-center gap-4 pb-32 lg:col-start-1 lg:min-h-screen lg:items-start lg:justify-center'>
+    <section className={`w-full max-w-screen-xl ${className}`}>
       {header && (
-        <h1 className='text-center font-bold uppercase tracking-wider text-purple-500 lg:px-8 lg:text-left lg:text-lg'>
+        <h1 className='p-4 text-center text-lg font-bold uppercase tracking-wider text-purple-500 lg:p-8 lg:text-xl'>
           {header}
         </h1>
       )}
@@ -14,6 +18,7 @@ const SectionContainer = ({ header, children }: SectionContainerProps) => {
 };
 
 interface SectionContainerProps {
+  className?: string;
   children: React.ReactNode;
   header?: string;
 }
