@@ -7,3 +7,4 @@ export const twitchLink = 'https://www.twitch.tv/';
 export const bttvLink = 'https://www.betterttv.net/';
 export const ffzLink = 'https://www.frankerfacez.com/';
 export const sevenTvLink = 'https://7tv.app/';
+export const donateLink = 'https://buymeacoffee.com/tommychow';
