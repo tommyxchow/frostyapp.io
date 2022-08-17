@@ -58,7 +58,7 @@ const Home = () => {
         'Instantly access your followed streams when you launch Frosty.',
       image: {
         path: '/screenshots/followed-ios.webp',
-        alt: 'iOS screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
+        alt: 'Screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
       },
     },
     {
@@ -67,7 +67,7 @@ const Home = () => {
       featureDescription: "Discover what's currently trending across Twitch.",
       image: {
         path: '/screenshots/categories-ios.webp',
-        alt: 'Android screenshot of the top categories tab, showing a 2-column grid of category box arts.',
+        alt: 'Screenshot of the top categories tab, showing a 2-column grid of category box arts.',
       },
     },
     {
@@ -76,7 +76,7 @@ const Home = () => {
       featureDescription: 'Join offline channels or find new categories.',
       image: {
         path: '/screenshots/search-ios.webp',
-        alt: 'iOS screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
+        alt: 'Screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
       },
     },
     {
@@ -86,7 +86,7 @@ const Home = () => {
         'See and chat with all your favorite BTTV, FFZ, and 7TV emotes.',
       image: {
         path: '/screenshots/emote-ios.webp',
-        alt: "Android screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
+        alt: "Screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
       },
     },
     {
@@ -96,7 +96,7 @@ const Home = () => {
         'Tweak layouts, adjust emote sizing, change themes, and more.',
       image: {
         path: '/screenshots/settings-ios.webp',
-        alt: 'Android screenshot of the settings section with the chat options expanded.',
+        alt: 'Screenshot of the settings section with the chat options expanded.',
       },
     },
   ];
