@@ -112,37 +112,33 @@ const Home = () => {
     'Sleep timer',
   ];
 
-  const badges = [
+  const badgeData = [
     {
-      icon: (
-        <SiAppstore className='mr-2 text-2xl lg:mr-0 lg:text-blue-500 xl:text-3xl' />
-      ),
+      icon: <SiAppstore className='text-2xl text-blue-500 lg:text-3xl' />,
       text: 'Download on App Store',
       link: appStoreLink,
       color: 'bg-blue-800',
     },
     {
-      icon: (
-        <SiGoogleplay className='mr-2 text-2xl lg:mr-0 lg:text-green-500 xl:text-3xl' />
-      ),
+      icon: <SiGoogleplay className='text-2xl text-green-500 lg:text-3xl' />,
       text: 'Download on Google Play',
       link: playStoreLink,
       color: 'bg-green-800',
     },
     {
-      icon: <SiGithub className='mr-2 text-2xl lg:mr-0 xl:text-3xl' />,
+      icon: <SiGithub className='text-2xl lg:text-3xl' />,
       text: 'View source on GitHub',
       link: repoLink,
       color: 'bg-gray-800',
     },
   ];
 
-  const storeBadges = (
+  const badges = (
     <ul className='m-auto flex w-full max-w-lg flex-col items-center gap-4 lg:px-8'>
-      {badges.map((badge) => (
+      {badgeData.map((badge) => (
         <li className='w-full' key={badge.text}>
           <a
-            className={`flex items-center justify-center rounded-full p-4 font-semibold shadow-lg transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
+            className={`flex items-center justify-center gap-2 rounded-full p-4 font-semibold shadow-lg transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
             href={badge.link}
             target='_blank'
             rel='noreferrer'
@@ -204,7 +200,7 @@ const Home = () => {
               Available for free on
             </p>
             <div className='flex items-center gap-4'>
-              {badges.map((badge) => (
+              {badgeData.map((badge) => (
                 <a
                   key={badge.text}
                   className='transition hover:scale-110 active:scale-90'
@@ -220,9 +216,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='flex w-full justify-center lg:hidden'>
-          {storeBadges}
-        </div>
+        <div className='flex w-full justify-center lg:hidden'>{badges}</div>
       </section>
 
       <SectionContainer header='Made for everyone'>
@@ -241,7 +235,7 @@ const Home = () => {
 
       <SectionContainer header='Features'>
         <div className='grid lg:grid-cols-2'>
-          <div className='flex flex-col gap-4'>
+          <div className='flex flex-col gap-8 lg:gap-16'>
             <ul className='flex flex-col gap-4'>
               {coreFeatures.map((feature, index) => (
                 <li key={feature.featureTitle}>
@@ -258,13 +252,11 @@ const Home = () => {
               ))}
             </ul>
 
-            <div className='flex flex-col items-center gap-2 pt-8 lg:items-start lg:px-8'>
-              <h3 className='mb-4 font-semibold lg:text-xl'>
-                And much more...
-              </h3>
-              <ul className='flex flex-col items-center bg-gradient-to-b from-neutral-200 bg-clip-text lg:items-start'>
+            <div className='flex flex-col items-center gap-4 lg:items-start lg:gap-8 lg:px-8'>
+              <h3 className='font-semibold lg:text-xl'>And much more...</h3>
+              <ul className='flex flex-col items-center gap-4 bg-gradient-to-b from-neutral-200 bg-clip-text lg:items-start lg:gap-8'>
                 {otherFeatures.map((feature) => (
-                  <li className='mb-2 xl:mb-4' key={feature}>
+                  <li key={feature}>
                     <p className='text-center text-lg font-semibold leading-normal text-transparent lg:text-start lg:text-2xl'>
                       {feature}
                     </p>
@@ -283,7 +275,7 @@ const Home = () => {
       </SectionContainer>
 
       <SectionContainer header='Get started' centerHeader>
-        {storeBadges}
+        {badges}
       </SectionContainer>
     </Layout>
   );

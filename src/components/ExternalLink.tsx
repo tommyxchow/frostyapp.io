@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ExternalLink = ({ text, href }: ExternalLinkProps) => {
   return (
     <a
