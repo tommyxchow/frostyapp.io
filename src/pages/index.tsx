@@ -57,7 +57,7 @@ const Home = () => {
       featureDescription:
         'Instantly access your followed streams when you launch Frosty.',
       image: {
-        path: '/screenshots/followed-ios.png',
+        path: '/screenshots/followed-ios.webp',
         alt: 'iOS screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
       },
     },
@@ -66,7 +66,7 @@ const Home = () => {
       featureTitle: 'Explore top streams and categories',
       featureDescription: "Discover what's currently trending across Twitch.",
       image: {
-        path: '/screenshots/categories-ios.png',
+        path: '/screenshots/categories-ios.webp',
         alt: 'Android screenshot of the top categories tab, showing a 2-column grid of category box arts.',
       },
     },
@@ -75,7 +75,7 @@ const Home = () => {
       featureTitle: 'Search for channels and categories',
       featureDescription: 'Join offline channels or find new categories.',
       image: {
-        path: '/screenshots/search-ios.png',
+        path: '/screenshots/search-ios.webp',
         alt: 'iOS screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
       },
     },
@@ -85,7 +85,7 @@ const Home = () => {
       featureDescription:
         'See and chat with all your favorite BTTV, FFZ, and 7TV emotes.',
       image: {
-        path: '/screenshots/emote-ios.png',
+        path: '/screenshots/emote-ios.webp',
         alt: "Android screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
       },
     },
@@ -95,7 +95,7 @@ const Home = () => {
       featureDescription:
         'Tweak layouts, adjust emote sizing, change themes, and more.',
       image: {
-        path: '/screenshots/settings-ios.png',
+        path: '/screenshots/settings-ios.webp',
         alt: 'Android screenshot of the settings section with the chat options expanded.',
       },
     },
@@ -172,7 +172,7 @@ const Home = () => {
         <div className='relative h-[calc(100vh/1.8)] max-h-[700px] w-full'>
           <Image
             alt="Screenshot of xQc's video stream and live chat."
-            src='/screenshots/channel-ios.png'
+            src='/screenshots/channel-ios.webp'
             layout='fill'
             objectFit='contain'
             quality={100}
