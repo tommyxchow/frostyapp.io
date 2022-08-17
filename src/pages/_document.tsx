@@ -73,7 +73,7 @@ export default function Document() {
 
         <meta name='apple-itunes-app' content='app-id=1603987585' />
       </Head>
-      <body className='scroll-smooth bg-neutral-900 text-neutral-200'>
+      <body className='scroll-smooth bg-neutral-900 text-neutral-200 selection:bg-purple-800'>
         <Main />
         <NextScript />
       </body>

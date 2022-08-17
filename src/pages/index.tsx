@@ -12,7 +12,6 @@ import {
 } from 'react-icons/md';
 import { SiAppstore, SiGithub, SiGoogleplay } from 'react-icons/si';
 import ExternalLink from '../components/ExternalLink';
-
 import FeatureCard from '../components/FeatureCard';
 import Layout from '../components/Layout';
 import MadeForCard from '../components/MadeForCard';
@@ -35,7 +34,7 @@ const Home = () => {
       icon: <MdEmojiPeople className='text-blue-500' />,
       user: 'New users',
       description:
-        "Discover the vast community of Twitch's most popular streams and categories without ever logging in.",
+        "Discover the vast community of Twitch's most popular streams and categories, no login required.",
     },
     {
       icon: <MdLiveTv className='text-twitch-purple' />,
@@ -135,20 +134,22 @@ const Home = () => {
   ];
 
   const storeBadges = (
-    <div className='m-auto flex w-full max-w-lg flex-col items-center gap-4 lg:px-8'>
+    <ul className='m-auto flex w-full max-w-lg flex-col items-center gap-4 lg:px-8'>
       {badges.map((badge) => (
-        <a
-          key={badge.text}
-          className={`flex w-full items-center justify-center rounded-full p-4 font-semibold shadow-lg transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
-          href={badge.link}
-          target='_blank'
-          rel='noreferrer'
-        >
-          {badge.icon}
-          {badge.text}
-        </a>
+        <li className='w-full' key={badge.text}>
+          <a
+            className={`flex items-center justify-center rounded-full p-4 font-semibold shadow-lg transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
+            href={badge.link}
+            target='_blank'
+            rel='noreferrer'
+            aria-label={badge.text}
+          >
+            {badge.icon}
+            {badge.text}
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 
   const scrollingImage = (
@@ -235,16 +236,17 @@ const Home = () => {
       </section>
 
       <SectionContainer header='Made for everyone'>
-        <div className='flex flex-col gap-4 md:flex-row'>
+        <ul className='flex flex-col gap-4 md:flex-row'>
           {madeFor.map((madeForItem) => (
-            <MadeForCard
-              key={madeForItem.user}
-              icon={madeForItem.icon}
-              user={madeForItem.user}
-              description={madeForItem.description}
-            />
+            <li key={madeForItem.user}>
+              <MadeForCard
+                icon={madeForItem.icon}
+                user={madeForItem.user}
+                description={madeForItem.description}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </SectionContainer>
 
       <SectionContainer header='Features'>
@@ -267,9 +269,9 @@ const Home = () => {
             </ul>
 
             <div className='flex flex-col items-center gap-2 pt-8 lg:items-start lg:px-8'>
-              <h2 className='mb-4 font-semibold lg:text-xl'>
+              <h3 className='mb-4 font-semibold lg:text-xl'>
                 And much more...
-              </h2>
+              </h3>
               <ul className='flex flex-col items-center bg-gradient-to-b from-neutral-200 bg-clip-text lg:items-start'>
                 {otherFeatures.map((feature) => (
                   <li className='mb-2 xl:mb-4' key={feature}>

@@ -20,12 +20,16 @@ export default function FeatureCard({
       <div>
         <div className='mb-2 text-lg md:flex md:items-center md:gap-2 lg:text-2xl'>
           <div className='hidden md:block'>{icon}</div>
-          <h2 className='text-center font-semibold md:text-left'>
+          <h3 className='text-center font-semibold md:text-left'>
             {featureTitle}
-          </h2>
+          </h3>
         </div>
 
-        <p className='text-center text-neutral-400 md:text-start lg:text-lg'>
+        <p
+          className={`text-center text-neutral-400 transition md:text-start lg:text-lg ${
+            !selected && 'lg:opacity-0'
+          }`}
+        >
           {featureDescription}
         </p>
       </div>
