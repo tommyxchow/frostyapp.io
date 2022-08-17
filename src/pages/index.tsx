@@ -157,6 +157,7 @@ const Home = () => {
       src={coreFeatures[featureIndex].image.path}
       layout='fill'
       objectFit='contain'
+      sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
     />
   );
 
@@ -174,6 +175,7 @@ const Home = () => {
             src='/screenshots/channel-ios.webp'
             layout='fill'
             objectFit='contain'
+            sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
             priority
           />
         </div>
