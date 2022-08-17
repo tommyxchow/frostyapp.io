@@ -11,13 +11,13 @@ const SectionContainer = ({
       className={`w-full max-w-screen-xl py-8 px-4 lg:py-16 ${className}`}
     >
       {header && (
-        <h1
+        <h2
           className={`p-4 text-center text-xl font-bold lg:p-8 lg:text-3xl ${
             !centerHeader && 'lg:text-left'
           }`}
         >
           {header}
-        </h1>
+        </h2>
       )}
       {children}
     </section>
