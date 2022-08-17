@@ -203,7 +203,6 @@ const Home = () => {
               {badgeData.map((badge) => (
                 <a
                   key={badge.text}
-                  className='transition hover:scale-110 active:scale-90'
                   href={badge.link}
                   target='_blank'
                   rel='noreferrer'
