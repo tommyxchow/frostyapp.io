@@ -58,7 +58,7 @@ const Layout = (props: LayoutProps) => {
       </main>
 
       <footer className='flex flex-col items-center justify-center gap-8 p-8 pt-32'>
-        <ul className='flex flex-col items-center gap-4 text-sm sm:flex-row sm:gap-8 lg:text-base'>
+        <ul className='flex items-center gap-4 text-sm sm:gap-8 lg:text-base'>
           <li>
             <ExternalLink text='Contact' href='mailto:contact@frostyapp.io' />
           </li>

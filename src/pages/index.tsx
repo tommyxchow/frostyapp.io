@@ -138,7 +138,7 @@ const Home = () => {
       {badgeData.map((badge) => (
         <li className='w-full' key={badge.text}>
           <a
-            className={`flex items-center justify-center gap-2 rounded-full p-4 font-semibold shadow-lg transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
+            className={`flex items-center justify-center gap-2 rounded-full p-4 font-semibold shadow-md transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
             href={badge.link}
             target='_blank'
             rel='noreferrer'
@@ -169,7 +169,7 @@ const Home = () => {
       <div className='absolute inset-0 -z-10 min-h-screen bg-gradient-to-b from-twitch-purple via-black' />
 
       <section className='grid min-h-screen w-full max-w-screen-xl place-items-center gap-8 px-4 pt-32 pb-16 lg:grid-cols-2 lg:gap-0'>
-        <div className='relative h-[calc(100vh/1.8)] max-h-[700px] w-full'>
+        <div className='relative h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl'>
           <Image
             alt="Screenshot of xQc's video stream and live chat."
             src='/screenshots/channel-ios.webp'
@@ -267,7 +267,7 @@ const Home = () => {
           </div>
 
           <div className='sticky top-[calc(100vh/4)] hidden h-fit flex-col items-center lg:flex'>
-            <div className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full lg:block'>
+            <div className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl lg:block'>
               {scrollingImage}
             </div>
           </div>

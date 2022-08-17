@@ -12,8 +12,10 @@ export default function FeatureCard({
 }: FeatureCardProps) {
   return (
     <button
-      className={`sticky grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 transition md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent lg:opacity-50 lg:hover:bg-neutral-800 lg:active:scale-95 ${
-        selected && 'lg:bg-neutral-800 lg:opacity-100 lg:shadow-md'
+      className={`sticky grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 shadow-xl transition md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent lg:opacity-50 lg:hover:bg-neutral-800 lg:active:scale-95 lg:active:shadow-none ${
+        selected
+          ? 'lg:bg-neutral-800 lg:opacity-100 lg:shadow-lg'
+          : 'lg:shadow-none'
       }`}
       onClick={onClick}
     >
@@ -34,7 +36,7 @@ export default function FeatureCard({
         </p>
       </div>
 
-      <div className='relative mt-4 h-[calc(100vh/2)] max-h-[700px] w-full lg:hidden'>
+      <div className='relative mt-4 h-[calc(100vh/2)] max-h-[700px] w-full drop-shadow-lg lg:hidden'>
         <Image
           alt={alt}
           src={src}
