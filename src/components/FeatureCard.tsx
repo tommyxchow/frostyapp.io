@@ -12,21 +12,25 @@ export default function FeatureCard({
 }: FeatureCardProps) {
   return (
     <button
-      className={`sticky flex w-full select-text flex-col items-center gap-2 rounded-lg bg-neutral-800 p-8 transition lg:items-start lg:justify-center lg:bg-transparent lg:opacity-50 lg:hover:bg-neutral-800 lg:active:scale-95 ${
+      className={`sticky grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 transition md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent lg:opacity-50 lg:hover:bg-neutral-800 lg:active:scale-95 ${
         selected && 'lg:bg-neutral-800 lg:opacity-100 lg:shadow-md'
       }`}
       onClick={onClick}
     >
-      <div className='flex items-center gap-2'>
-        <div className='hidden text-2xl lg:block'>{icon}</div>
-        <h2 className='text-center text-xl font-semibold lg:text-left lg:text-2xl'>
-          {featureTitle}
-        </h2>
+      <div>
+        <div className='mb-2 text-lg md:flex md:items-center md:gap-2 lg:text-2xl'>
+          <div className='hidden md:block'>{icon}</div>
+          <h2 className='text-center font-semibold md:text-left'>
+            {featureTitle}
+          </h2>
+        </div>
+
+        <p className='text-center text-neutral-400 md:text-start lg:text-lg'>
+          {featureDescription}
+        </p>
       </div>
-      <p className='text-center text-neutral-400 lg:text-start lg:text-lg'>
-        {featureDescription}
-      </p>
-      <div className='relative mt-8 h-[calc(100vh/2)] w-full lg:hidden'>
+
+      <div className='relative mt-4 h-[calc(100vh/2)] max-h-[700px] w-full lg:hidden'>
         <Image
           alt={alt}
           src={src}

@@ -33,21 +33,21 @@ const Home = () => {
   const madeFor = [
     {
       icon: <MdEmojiPeople className='text-blue-500' />,
-      user: 'Newcomers',
+      user: 'New users',
       description:
-        "Discover the vast commmunity of Twitch's most popular channels and categories, no login required.",
+        "Discover the vast community of Twitch's most popular streams and categories without ever logging in.",
     },
     {
       icon: <MdLiveTv className='text-twitch-purple' />,
       user: 'Twitch regulars',
       description:
-        'Enjoy an improved Twitch chat experience with several enhancements. Log in with your Twitch account to unlock all features like chatting and seeing followed streams.',
+        'Log in with your Twitch account to utilize features such as sending chat messages and blocking users.',
     },
     {
       icon: <MdDeveloperMode className='text-green-500' />,
       user: 'Developers',
       description:
-        'Frosty is a completely open-source project built with Flutter. Contributions are always welcome on the GitHub repo.',
+        'Explore the free and open-source code on GitHub. Contributions and issues are always welcome!',
     },
   ];
 
@@ -64,9 +64,8 @@ const Home = () => {
     },
     {
       icon: <MdArrowUpward />,
-      featureTitle: 'Explore top channels and categories',
-      featureDescription:
-        "Discover what's trending by exploring top streams and categories across Twitch.",
+      featureTitle: 'Explore top streams and categories',
+      featureDescription: "Discover what's currently trending across Twitch.",
       image: {
         path: '/screenshots/categories-ios.png',
         alt: 'Android screenshot of the top categories tab, showing a 2-column grid of category box arts.',
@@ -75,8 +74,7 @@ const Home = () => {
     {
       icon: <MdSearch />,
       featureTitle: 'Search for channels and categories',
-      featureDescription:
-        'Looking for someone or something specific on Twitch? Just search!',
+      featureDescription: 'Join offline channels or find new categories.',
       image: {
         path: '/screenshots/search-ios.png',
         alt: 'iOS screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
@@ -84,19 +82,19 @@ const Home = () => {
     },
     {
       icon: <MdEmojiEmotions />,
-      featureTitle: 'BTTV, FFZ, and 7TV support',
+      featureTitle: 'Watch streams with chat',
       featureDescription:
-        'Enjoy full support for BTTV, FFZ, and 7TV emotes and badges in chat, including animated GIF emotes.',
+        'See and chat with all your favorite BTTV, FFZ, and 7TV emotes.',
       image: {
         path: '/screenshots/emote-ios.png',
-        alt: "Android screenshot of the channel view with pokelawls's video stream and live chat and the emote menu expanded.",
+        alt: "Android screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
       },
     },
     {
       icon: <MdSettings />,
       featureTitle: 'Customizable settings',
       featureDescription:
-        'Tweak layouts, adjust font and emote sizes, change themes, and much more.',
+        'Tweak layouts, adjust emote sizing, change themes, and more.',
       image: {
         path: '/screenshots/settings-ios.png',
         alt: 'Android screenshot of the settings section with the chat options expanded.',
@@ -115,35 +113,41 @@ const Home = () => {
     'Sleep timer',
   ];
 
+  const badges = [
+    {
+      icon: <SiAppstore className='mr-2 text-2xl xl:text-3xl' />,
+      text: 'Download on App Store',
+      link: appStoreLink,
+      color: 'bg-blue-800',
+    },
+    {
+      icon: <SiGoogleplay className='mr-2 text-2xl xl:text-3xl' />,
+      text: 'Download on Google Play',
+      link: playStoreLink,
+      color: 'bg-green-800',
+    },
+    {
+      icon: <SiGithub className='mr-2 text-2xl xl:text-3xl' />,
+      text: 'View source on GitHub',
+      link: repoLink,
+      color: 'bg-gray-800',
+    },
+  ];
+
   const storeBadges = (
     <div className='m-auto flex w-full max-w-lg flex-col items-center gap-4 lg:px-8'>
-      <a
-        className='flex w-full items-center justify-center rounded-full bg-blue-800 p-4 font-semibold shadow-lg transition hover:bg-blue-900 active:scale-95 active:shadow-none lg:text-lg xl:text-xl'
-        href={appStoreLink}
-        target='_blank'
-        rel='noreferrer'
-      >
-        <SiAppstore className='mr-2 text-2xl xl:text-3xl' />
-        Download on App Store
-      </a>
-      <a
-        className='flex w-full items-center justify-center rounded-full bg-green-800 p-4 font-semibold shadow-lg transition hover:bg-green-900 active:scale-95 active:shadow-none lg:text-lg xl:text-xl'
-        href={playStoreLink}
-        target='_blank'
-        rel='noreferrer'
-      >
-        <SiGoogleplay className='mr-2 text-2xl xl:text-3xl' />
-        Download on Google Play
-      </a>
-      <a
-        className='flex w-full items-center justify-center rounded-full bg-gray-800 p-4 font-semibold shadow-lg transition hover:bg-gray-900 active:scale-95 active:shadow-none lg:text-lg xl:text-xl'
-        href={repoLink}
-        target='_blank'
-        rel='noreferrer'
-      >
-        <SiGithub className='mr-2 text-2xl xl:text-3xl' />
-        View source on GitHub
-      </a>
+      {badges.map((badge) => (
+        <a
+          key={badge.text}
+          className={`flex w-full items-center justify-center rounded-full p-4 font-semibold shadow-lg transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
+          href={badge.link}
+          target='_blank'
+          rel='noreferrer'
+        >
+          {badge.icon}
+          {badge.text}
+        </a>
+      ))}
     </div>
   );
 
@@ -164,7 +168,7 @@ const Home = () => {
     >
       <div className='absolute inset-0 -z-10 min-h-screen bg-gradient-to-b from-twitch-purple via-black' />
 
-      <section className='grid min-h-screen w-full max-w-screen-xl place-items-center gap-8 px-4 py-32 lg:grid-cols-2 lg:gap-0'>
+      <section className='grid min-h-screen w-full max-w-screen-xl place-items-center gap-8 px-4 pt-32 pb-16 lg:grid-cols-2 lg:gap-0'>
         <div className='relative h-[calc(100vh/1.8)] max-h-[700px] w-full'>
           <Image
             alt="Screenshot of xQc's video stream and live chat."
@@ -176,23 +180,19 @@ const Home = () => {
           />
         </div>
 
-        <div className='flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-8'>
+        <div className='flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-8 lg:justify-self-start lg:pl-8'>
           <h1 className='text-center text-2xl font-bold lg:text-left lg:text-4xl'>
             The better mobile <br /> Twitch chat experience.
           </h1>
 
-          <p className='mb-8 max-w-lg text-center text-white text-opacity-60 lg:text-left lg:text-lg'>
-            Frosty is a mobile app built from the ground up aimed at enhancing
-            the mobile <ExternalLink text='Twitch.tv' href={twitchLink} /> chat
-            experience.
-            <br />
-            <br />
-            It brings quality-of-life features and, most importantly,
+          <p className='mb-4 max-w-lg text-center text-white text-opacity-60 lg:mb-8 lg:text-left lg:text-lg'>
+            Frosty brings quality-of-life features and, most importantly,
             third-party emotes from{' '}
             <ExternalLink text='BetterTTV (BTTV)' href={bttvLink} />,{' '}
             <ExternalLink text='FrankerFaceZ (FFZ)' href={ffzLink} />, and{' '}
             <ExternalLink text='7TV' href={sevenTvLink} /> — popular extensions
-            for Twitch used by millions — to both iOS and Android.
+            for <ExternalLink text='Twitch' href={twitchLink} /> used by
+            millions — to both iOS and Android.
           </p>
 
           <div className='hidden items-center gap-4 lg:flex'>
@@ -234,8 +234,8 @@ const Home = () => {
         </div>
       </section>
 
-      <SectionContainer className='py-16 px-4' header='Made for'>
-        <div className='flex flex-col gap-4 lg:flex-row'>
+      <SectionContainer header='Made for everyone'>
+        <div className='flex flex-col gap-4 md:flex-row'>
           {madeFor.map((madeForItem) => (
             <MadeForCard
               key={madeForItem.user}
@@ -247,30 +247,33 @@ const Home = () => {
         </div>
       </SectionContainer>
 
-      <SectionContainer className='py-16 px-4' header='Features'>
+      <SectionContainer header='Features'>
         <div className='grid lg:grid-cols-2'>
           <div className='flex flex-col gap-4'>
-            {coreFeatures.map((feature, index) => (
-              <FeatureCard
-                icon={feature.icon}
-                key={feature.featureTitle}
-                featureTitle={feature.featureTitle}
-                featureDescription={feature.featureDescription}
-                alt={feature.image.alt}
-                src={feature.image.path}
-                selected={index === featureIndex}
-                onClick={() => setFeatureIndex(index)}
-              />
-            ))}
+            <ul className='flex flex-col gap-4'>
+              {coreFeatures.map((feature, index) => (
+                <li key={feature.featureTitle}>
+                  <FeatureCard
+                    icon={feature.icon}
+                    featureTitle={feature.featureTitle}
+                    featureDescription={feature.featureDescription}
+                    alt={feature.image.alt}
+                    src={feature.image.path}
+                    selected={index === featureIndex}
+                    onClick={() => setFeatureIndex(index)}
+                  />
+                </li>
+              ))}
+            </ul>
 
             <div className='flex flex-col items-center gap-2 pt-8 lg:items-start lg:px-8'>
-              <h2 className='mb-4 text-lg font-semibold lg:text-xl'>
+              <h2 className='mb-4 font-semibold lg:text-xl'>
                 And much more...
               </h2>
               <ul className='flex flex-col items-center bg-gradient-to-b from-neutral-200 bg-clip-text lg:items-start'>
                 {otherFeatures.map((feature) => (
                   <li className='mb-2 xl:mb-4' key={feature}>
-                    <p className='text-center text-xl font-semibold leading-normal text-transparent lg:text-start lg:text-2xl'>
+                    <p className='text-center text-lg font-semibold leading-normal text-transparent lg:text-start lg:text-2xl'>
                       {feature}
                     </p>
                   </li>
@@ -287,17 +290,9 @@ const Home = () => {
         </div>
       </SectionContainer>
 
-      <SectionContainer
-        className='w-fit px-4 py-16'
-        header='Like what you see?'
-      >
-        <p className='mb-4 px-8 text-center text-lg font-medium text-neutral-300'>
-          Download Frosty now and get started!
-        </p>
+      <SectionContainer header='Get started' centerHeader>
         {storeBadges}
       </SectionContainer>
-
-      {/* <SectionContainer header='More'>FAQ</SectionContainer> */}
     </Layout>
   );
 };
