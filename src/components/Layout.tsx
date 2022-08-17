@@ -2,13 +2,11 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { SiGithub } from 'react-icons/si';
-import { repoLink } from '../constants';
+import { SiBuymeacoffee, SiGithub } from 'react-icons/si';
+import { donateLink, repoLink } from '../constants';
 import ExternalLink from './ExternalLink';
 
 const Layout = (props: LayoutProps) => {
-  const routes = ['FAQ', 'Changelog', 'Donate'];
-
   return (
     <>
       <Head>
@@ -18,37 +16,41 @@ const Layout = (props: LayoutProps) => {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <header className='fixed z-50 flex w-full items-center justify-between p-4 backdrop-blur xl:p-8'>
-        <Link href='/'>
-          <a className='flex items-center'>
-            <div className='relative mr-2 h-8 w-8 xl:h-12 xl:w-12'>
-              <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
-            </div>
-            <h1 className='text-2xl font-semibold xl:text-4xl'>Frosty</h1>
-          </a>
-        </Link>
+      <header className='fixed z-50 w-full overflow-auto text-lg backdrop-blur lg:text-2xl'>
+        <nav className='m-auto flex max-w-screen-xl items-center justify-between gap-4 p-4 font-semibold lg:gap-8 lg:px-12 lg:py-8'>
+          <Link href='/'>
+            <a className='flex items-center gap-2'>
+              <div className='relative h-8 w-8'>
+                <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
+              </div>
+              <h1>Frosty</h1>
+            </a>
+          </Link>
 
-        <div className='flex items-center gap-8'>
-          {/* <nav>
-            <ul className='flex items-center gap-4 font-semibold xl:gap-8 xl:text-xl'>
-              {routes.map((route) => (
-                <li key={route}>
-                  <Link href={route.toLowerCase()}>
-                    <a>{route}</a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav> */}
-          <a
-            className='text-2xl xl:text-4xl'
-            href='https://github.com/tommyxchow/frosty'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <SiGithub />
-          </a>
-        </div>
+          <ul className='flex items-center gap-4 lg:gap-8 lg:text-xl'>
+            <li>
+              <a
+                href={donateLink}
+                target='_blank'
+                rel='noreferrer'
+                aria-label='Buy me a coffee'
+              >
+                <SiBuymeacoffee className='opacity-80 transition hover:text-yellow-500 hover:opacity-100' />
+              </a>
+            </li>
+
+            <li>
+              <a
+                href={repoLink}
+                target='_blank'
+                rel='noreferrer'
+                aria-label='View source on GitHub'
+              >
+                <SiGithub className='opacity-80 transition hover:opacity-100' />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </header>
 
       <main className='flex min-h-screen flex-col items-center'>
@@ -61,23 +63,10 @@ const Layout = (props: LayoutProps) => {
             <ExternalLink text='Contact' href='mailto:contact@frostyapp.io' />
           </li>
           <li>
-            <Link href='/faq'>
-              <a className='font-medium hover:underline'>FAQ</a>
-            </Link>
+            <ExternalLink text='GitHub' href={repoLink} />
           </li>
           <li>
-            <ExternalLink text='Github' href={repoLink} />
-          </li>
-          <li>
-            <Link href='/privacy-policy'>
-              <a className='font-medium hover:underline'>Privacy Policy</a>
-            </Link>
-          </li>
-          <li>
-            <ExternalLink
-              text='❤️ Support Frosty ❤️'
-              href='https://buymeacoffee.com/tommychow'
-            />
+            <ExternalLink text='Donate' href={donateLink} />
           </li>
         </ul>
         <p className='text-center text-sm text-neutral-400'>

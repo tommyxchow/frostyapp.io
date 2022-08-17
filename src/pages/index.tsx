@@ -37,7 +37,7 @@ const Home = () => {
         "Discover the vast community of Twitch's most popular streams and categories, no login required.",
     },
     {
-      icon: <MdLiveTv className='text-twitch-purple' />,
+      icon: <MdLiveTv className='text-purple-500' />,
       user: 'Twitch regulars',
       description:
         'Log in with your Twitch account to utilize features such as sending chat messages and blocking users.',
@@ -114,19 +114,23 @@ const Home = () => {
 
   const badges = [
     {
-      icon: <SiAppstore className='mr-2 text-2xl xl:text-3xl' />,
+      icon: (
+        <SiAppstore className='mr-2 text-2xl lg:mr-0 lg:text-blue-500 xl:text-3xl' />
+      ),
       text: 'Download on App Store',
       link: appStoreLink,
       color: 'bg-blue-800',
     },
     {
-      icon: <SiGoogleplay className='mr-2 text-2xl xl:text-3xl' />,
+      icon: (
+        <SiGoogleplay className='mr-2 text-2xl lg:mr-0 lg:text-green-500 xl:text-3xl' />
+      ),
       text: 'Download on Google Play',
       link: playStoreLink,
       color: 'bg-green-800',
     },
     {
-      icon: <SiGithub className='mr-2 text-2xl xl:text-3xl' />,
+      icon: <SiGithub className='mr-2 text-2xl lg:mr-0 xl:text-3xl' />,
       text: 'View source on GitHub',
       link: repoLink,
       color: 'bg-gray-800',
@@ -142,7 +146,6 @@ const Home = () => {
             href={badge.link}
             target='_blank'
             rel='noreferrer'
-            aria-label={badge.text}
           >
             {badge.icon}
             {badge.text}
@@ -200,32 +203,19 @@ const Home = () => {
             <p className='text-xl font-medium text-neutral-300'>
               Available for free on
             </p>
-            <div className='flex items-center gap-4 text-3xl'>
-              <a
-                className='transition hover:scale-110 active:scale-90'
-                href={appStoreLink}
-                target='_blank'
-                rel='noreferrer'
-              >
-                <SiAppstore className='text-blue-500' />
-              </a>
-              <a
-                className='transition hover:scale-110 active:scale-90'
-                href={playStoreLink}
-                target='_blank'
-                rel='noreferrer'
-              >
-                <SiGoogleplay className='text-green-500' />
-              </a>
-
-              <a
-                className='transition hover:scale-110 active:scale-90'
-                href={repoLink}
-                target='_blank'
-                rel='noreferrer'
-              >
-                <SiGithub />
-              </a>
+            <div className='flex items-center gap-4'>
+              {badges.map((badge) => (
+                <a
+                  key={badge.text}
+                  className='transition hover:scale-110 active:scale-90'
+                  href={badge.link}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label={badge.text}
+                >
+                  {badge.icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>
