@@ -35,14 +35,7 @@ export default function FeatureCard({
       </div>
 
       <div className='relative mt-4 h-[calc(100vh/2)] max-h-[700px] w-full lg:hidden'>
-        <Image
-          alt={alt}
-          src={src}
-          layout='fill'
-          objectFit='contain'
-          quality={100}
-          priority
-        />
+        <Image alt={alt} src={src} layout='fill' objectFit='contain' />
       </div>
     </button>
   );

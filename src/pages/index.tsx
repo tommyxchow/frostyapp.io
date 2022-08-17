@@ -157,7 +157,6 @@ const Home = () => {
       src={coreFeatures[featureIndex].image.path}
       layout='fill'
       objectFit='contain'
-      quality={100}
     />
   );
 
@@ -175,7 +174,6 @@ const Home = () => {
             src='/screenshots/channel-ios.webp'
             layout='fill'
             objectFit='contain'
-            quality={100}
             priority
           />
         </div>
