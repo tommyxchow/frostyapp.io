@@ -4,14 +4,14 @@ import Link from 'next/link';
 import React from 'react';
 import { SiBuymeacoffee, SiGithub } from 'react-icons/si';
 import { AiOutlineFileProtect } from 'react-icons/ai';
-import { donateLink, repoLink, privacypolicyLink } from '../constants';
+import { donateLink, repoLink, privacyPolicyLink } from '../constants';
 import ExternalLink from './ExternalLink';
 
 const Layout = (props: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>{props.title} | Frosty for Twitch</title>
+        <title>{`${props.title} | Frosty for Twitch`}</title>
 
         <meta name='description' content={props.description} />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -53,7 +53,7 @@ const Layout = (props: LayoutProps) => {
 
             <li>
               <a
-                href={privacypolicyLink}
+                href={privacyPolicyLink}
                 target='_blank'
                 rel='noreferrer'
                 aria-label='View Privacy Policy'
@@ -81,7 +81,7 @@ const Layout = (props: LayoutProps) => {
             <ExternalLink text='GitHub' href={repoLink} />
           </li>
           <li>
-            <ExternalLink text='Privacy' href={privacypolicyLink} />
+            <ExternalLink text='Privacy' href={privacyPolicyLink} />
           </li>
         </ul>
         <p className='text-center text-xs text-neutral-400 lg:text-sm'>
