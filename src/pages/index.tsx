@@ -26,6 +26,7 @@ import {
   sevenTvLink,
   twitchLink,
 } from '../constants';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 
 const Home = () => {
   const [featureIndex, setFeatureIndex] = useState(0);
@@ -189,6 +190,19 @@ const Home = () => {
     />
   );
 
+  const stagger: Variants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        ease: 'easeOut',
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
     <Layout
       title='Mobile Twitch app with BTTV, FFZ, and 7TV support'
@@ -196,7 +210,25 @@ const Home = () => {
     >
       <div className='absolute inset-0 -z-10 min-h-screen bg-gradient-to-b from-twitch-purple via-black' />
 
-      <section className='grid min-h-screen w-full max-w-screen-xl place-items-center gap-8 px-4 pt-32 pb-16 lg:grid-cols-2 lg:gap-0'>
+      <motion.section
+        className='grid min-h-screen w-full max-w-screen-xl place-items-center gap-8 px-4 pt-32 pb-16 lg:grid-cols-2 lg:gap-0'
+        variants={{
+          hidden: {
+            scale: 1.05,
+            opacity: 0,
+          },
+          visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              ease: 'easeOut',
+              duration: 0.5,
+            },
+          },
+        }}
+        initial='hidden'
+        animate='visible'
+      >
         <div className='relative h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl'>
           <Image
             alt="Screenshot of xQc's video stream and live chat."
@@ -242,28 +274,40 @@ const Home = () => {
         </div>
 
         <div className='flex w-full justify-center lg:hidden'>{badges}</div>
-      </section>
+      </motion.section>
 
       <SectionContainer header='Made for everyone'>
-        <ul className='flex flex-col gap-4 md:flex-row'>
+        <motion.ul
+          className='flex flex-col gap-4 md:flex-row'
+          variants={stagger}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, amount: 0.5 }}
+        >
           {madeFor.map((madeForItem) => (
-            <li key={madeForItem.user}>
+            <motion.li key={madeForItem.user} variants={stagger}>
               <MadeForCard
                 icon={madeForItem.icon}
                 user={madeForItem.user}
                 description={madeForItem.description}
               />
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </SectionContainer>
 
       <SectionContainer header='Features'>
         <div className='grid lg:grid-cols-2'>
           <div className='flex flex-col gap-8 lg:gap-16'>
-            <ul className='flex flex-col gap-4'>
+            <motion.ul
+              className='flex flex-col gap-4'
+              variants={stagger}
+              initial='hidden'
+              whileInView='visible'
+              viewport={{ once: true }}
+            >
               {coreFeatures.map((feature, index) => (
-                <li key={feature.featureTitle}>
+                <motion.li key={feature.featureTitle} variants={stagger}>
                   <FeatureCard
                     icon={feature.icon}
                     featureTitle={feature.featureTitle}
@@ -273,28 +317,67 @@ const Home = () => {
                     selected={index === featureIndex}
                     onClick={() => setFeatureIndex(index)}
                   />
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
 
-            <div className='flex flex-col items-center gap-4 lg:items-start lg:gap-8 lg:px-8'>
-              <h3 className='font-semibold lg:text-xl'>And much more...</h3>
-              <ul className='flex flex-col items-center gap-4 bg-gradient-to-b from-neutral-200 bg-clip-text lg:items-start lg:gap-8'>
-                {otherFeatures.map((feature) => (
-                  <li key={feature}>
-                    <p className='text-center text-lg font-semibold leading-normal text-transparent lg:text-start lg:text-2xl'>
+            <motion.div
+              className='flex flex-col items-center gap-4 lg:items-start lg:gap-8 lg:px-8'
+              variants={stagger}
+              initial='hidden'
+              whileInView='visible'
+              viewport={{ once: true, amount: 1 }}
+            >
+              <motion.h3 className='font-semibold lg:text-xl'>
+                And much more...
+              </motion.h3>
+              <motion.ul
+                className='flex flex-col items-center gap-4 lg:items-start lg:gap-8'
+                variants={stagger}
+              >
+                {otherFeatures.map((feature, index) => (
+                  <motion.li
+                    key={feature}
+                    variants={{
+                      hidden: {
+                        opacity: 0,
+                      },
+                      visible: {
+                        opacity:
+                          (1 / otherFeatures.length) *
+                          (otherFeatures.length - index),
+                      },
+                    }}
+                  >
+                    <p className='text-center text-lg font-semibold leading-normal lg:text-start lg:text-2xl'>
                       {feature}
                     </p>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
-            </div>
+              </motion.ul>
+            </motion.div>
           </div>
 
           <div className='sticky top-[calc(100vh/4)] hidden h-fit flex-col items-center lg:flex'>
-            <div className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl lg:block'>
-              {scrollingImage}
-            </div>
+            <AnimatePresence mode='wait'>
+              <motion.div
+                key={featureIndex}
+                className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl lg:block'
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 0.2 },
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.95,
+                  transition: { duration: 0.2 },
+                }}
+              >
+                {scrollingImage}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </SectionContainer>
