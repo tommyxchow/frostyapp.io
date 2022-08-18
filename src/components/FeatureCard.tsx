@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function FeatureCard({
   icon,
@@ -10,6 +10,8 @@ export default function FeatureCard({
   selected,
   onClick,
 }: FeatureCardProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <button
       className={`sticky grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 shadow-xl transition md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent lg:opacity-50 lg:hover:bg-neutral-800 lg:active:scale-95 lg:active:shadow-none ${
@@ -38,7 +40,10 @@ export default function FeatureCard({
 
       <div className='relative mt-4 h-[calc(100vh/2)] max-h-[700px] w-full drop-shadow-lg lg:hidden'>
         <Image
-          className='transition duration-1000'
+          className={`transition duration-500 ease-out ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoadingComplete={() => setImageLoaded(true)}
           alt={alt}
           src={src}
           layout='fill'
