@@ -180,8 +180,14 @@ const Home = () => {
     </ul>
   );
 
+  const [scrollingImageLoaded, setScrollingImageLoaded] = useState(false);
+
   const scrollingImage = (
     <Image
+      className={`transition duration-500 ease-out ${
+        scrollingImageLoaded ? 'opacity-100' : 'opacity-0'
+      }`}
+      onLoadingComplete={() => setScrollingImageLoaded(true)}
       alt={coreFeatures[featureIndex].featureDescription}
       src={coreFeatures[featureIndex].image.path}
       layout='fill'
@@ -202,6 +208,8 @@ const Home = () => {
       },
     },
   };
+
+  const [landingImageLoaded, setLandingImageLoaded] = useState(false);
 
   return (
     <Layout
@@ -231,6 +239,10 @@ const Home = () => {
       >
         <div className='relative h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl'>
           <Image
+            className={`transition duration-500 ease-out ${
+              landingImageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoadingComplete={() => setLandingImageLoaded(true)}
             alt="Screenshot of xQc's video stream and live chat."
             src='/screenshots/channel-ios.webp'
             layout='fill'
