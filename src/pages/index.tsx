@@ -58,48 +58,45 @@ const Home = () => {
       featureTitle: 'Browse followed streams',
       featureDescription:
         'Instantly access your followed streams when you launch Frosty.',
-      image: {
-        path: '/screenshots/followed-ios.webp',
-        alt: 'Screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
-      },
+      iosImage: '/screenshots/followed-ios.webp',
+      androidImage: '/screenshots/followed-android.webp',
+      alt: 'Screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
     },
     {
       icon: <MdArrowUpward />,
       featureTitle: 'Explore top streams and categories',
       featureDescription: "Discover what's currently trending across Twitch.",
-      image: {
-        path: '/screenshots/categories-ios.webp',
-        alt: 'Screenshot of the top categories tab, showing a 2-column grid of category box arts.',
-      },
+      iosImage: '/screenshots/categories-ios.webp',
+      androidImage: '/screenshots/categories-android.webp',
+      alt: 'Screenshot of the top categories tab, showing a 2-column grid of category box arts.',
     },
     {
       icon: <MdSearch />,
       featureTitle: 'Search for channels and categories',
       featureDescription: 'Join offline channels or find new categories.',
-      image: {
-        path: '/screenshots/search-ios.webp',
-        alt: 'Screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
-      },
+      iosImage: '/screenshots/search-ios.webp',
+      androidImage: '/screenshots/search-android.webp',
+      alt: 'Screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
     },
     {
       icon: <MdEmojiEmotions />,
       featureTitle: 'Watch streams with chat',
       featureDescription:
         'See and chat with all your favorite BTTV, FFZ, and 7TV emotes.',
-      image: {
-        path: '/screenshots/emote-ios.webp',
-        alt: "Screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
-      },
+
+      iosImage: '/screenshots/emote-ios.webp',
+      androidImage: '/screenshots/emote-android.webp',
+      alt: "Screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
     },
     {
       icon: <MdSettings />,
       featureTitle: 'Customizable settings',
       featureDescription:
         'Tweak layouts, adjust emote sizing, change themes, and more.',
-      image: {
-        path: '/screenshots/settings-ios.webp',
-        alt: 'Screenshot of the settings section with the chat options expanded.',
-      },
+
+      iosImage: '/screenshots/settings-ios.webp',
+      androidImage: '/screenshots/settings-android.webp',
+      alt: 'Screenshot of the settings section with the chat options expanded.',
     },
   ];
 
@@ -180,6 +177,7 @@ const Home = () => {
     </ul>
   );
 
+  const [showAndroidScreenshots, setShowAndroidScreenshots] = useState(false);
   const [scrollingImageLoaded, setScrollingImageLoaded] = useState(false);
 
   const scrollingImage = (
@@ -189,7 +187,11 @@ const Home = () => {
       }`}
       onLoadingComplete={() => setScrollingImageLoaded(true)}
       alt={coreFeatures[featureIndex].featureDescription}
-      src={coreFeatures[featureIndex].image.path}
+      src={
+        showAndroidScreenshots
+          ? coreFeatures[featureIndex].androidImage
+          : coreFeatures[featureIndex].iosImage
+      }
       layout='fill'
       objectFit='contain'
       sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
@@ -244,7 +246,11 @@ const Home = () => {
             }`}
             onLoadingComplete={() => setLandingImageLoaded(true)}
             alt="Screenshot of xQc's video stream and live chat."
-            src='/screenshots/channel-ios.webp'
+            src={
+              showAndroidScreenshots
+                ? '/screenshots/channel-android.webp'
+                : '/screenshots/channel-ios.webp'
+            }
             layout='fill'
             objectFit='contain'
             sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
@@ -324,8 +330,12 @@ const Home = () => {
                     icon={feature.icon}
                     featureTitle={feature.featureTitle}
                     featureDescription={feature.featureDescription}
-                    alt={feature.image.alt}
-                    src={feature.image.path}
+                    alt={feature.alt}
+                    src={
+                      showAndroidScreenshots
+                        ? feature.androidImage
+                        : feature.iosImage
+                    }
                     selected={index === featureIndex}
                     onClick={() => setFeatureIndex(index)}
                   />
@@ -370,10 +380,10 @@ const Home = () => {
             </motion.div>
           </div>
 
-          <div className='sticky top-[calc(100vh/4)] hidden h-fit flex-col items-center lg:flex'>
+          <div className='sticky top-[calc(100vh/4)] hidden h-fit flex-col items-center gap-4 lg:flex'>
             <AnimatePresence mode='wait'>
               <motion.div
-                key={featureIndex}
+                key={featureIndex + showAndroidScreenshots.toString()}
                 className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl lg:block'
                 initial={{ opacity: 0, scale: 1.05 }}
                 animate={{
@@ -390,6 +400,28 @@ const Home = () => {
                 {scrollingImage}
               </motion.div>
             </AnimatePresence>
+            <div className='grid grid-cols-2 gap-2 font-medium'>
+              <button
+                className={`rounded-lg bg-opacity-20 py-2 px-4 transition hover:bg-blue-500 hover:bg-opacity-20 active:scale-90 ${
+                  !showAndroidScreenshots
+                    ? 'bg-blue-500 text-blue-400'
+                    : 'text-neutral-400'
+                }`}
+                onClick={() => setShowAndroidScreenshots(false)}
+              >
+                iOS
+              </button>
+              <button
+                className={`rounded-lg bg-opacity-20 py-2 px-4 transition hover:bg-green-500 hover:bg-opacity-20 active:scale-90 ${
+                  showAndroidScreenshots
+                    ? 'bg-green-500 text-green-400'
+                    : 'text-neutral-400'
+                }`}
+                onClick={() => setShowAndroidScreenshots(true)}
+              >
+                Android
+              </button>
+            </div>
           </div>
         </div>
       </SectionContainer>
