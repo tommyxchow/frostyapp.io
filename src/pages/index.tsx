@@ -12,6 +12,7 @@ import {
 } from 'react-icons/md';
 import { SiAppstore, SiGithub, SiGoogleplay } from 'react-icons/si';
 import ExternalLink from '../components/ExternalLink';
+import FAQ from '../components/FAQ';
 import FeatureCard from '../components/FeatureCard';
 import Layout from '../components/Layout';
 import MadeForCard from '../components/MadeForCard';
@@ -112,6 +113,33 @@ const Home = () => {
     'Sleep timer',
   ];
 
+  const faqs = [
+    {
+      question: 'Why are some Twitch features not in Frosty?',
+      answer:
+        'Features are usually limited by what is allowed in the official Twitch API, so some features (e.g., voting on predictions and total view count for categories) are not yet available.',
+    },
+    {
+      question: "Why can't I change the stream quality?",
+      answer:
+        'There is currently no straightforward official API for getting the raw stream URLs, so streams rely on the auto setting for now.',
+    },
+    {
+      question: 'Why is the stream delayed on iOS?',
+      answer:
+        'There is a delay of around 15 seconds due to how the native iOS player works. As a workaround, Frosty has a message delay option that lets you set the delay (in seconds) before each message is rendered.',
+    },
+    {
+      question: 'Is ad block planned?',
+      answer:
+        'Ad block is not planned because it would probably violate the Twitch terms of service.',
+    },
+    {
+      question: 'Where can I report a bug or request a new feature?',
+      answer: 'You can open a new issue on the GitHub repo.',
+    },
+  ];
+
   const badgeData = [
     {
       icon: <SiAppstore className='text-2xl text-blue-500 lg:text-3xl' />,
@@ -196,9 +224,7 @@ const Home = () => {
           </p>
 
           <div className='hidden items-center gap-4 lg:flex'>
-            <p className='text-xl font-medium text-neutral-300'>
-              Available for free on
-            </p>
+            <p className='text-xl font-medium'>Available for free on</p>
             <div className='flex items-center gap-4'>
               {badgeData.map((badge) => (
                 <a
@@ -275,6 +301,14 @@ const Home = () => {
 
       <SectionContainer header='Get started' centerHeader>
         {badges}
+      </SectionContainer>
+
+      <SectionContainer header='Frequently asked questions' centerHeader>
+        <div className='m-auto flex max-w-screen-md flex-col gap-4'>
+          {faqs.map((faq) => (
+            <FAQ key={faq.question} {...faq} />
+          ))}
+        </div>
       </SectionContainer>
     </Layout>
   );
