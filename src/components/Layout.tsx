@@ -3,8 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { SiBuymeacoffee, SiGithub } from 'react-icons/si';
-import { AiOutlineFileProtect } from 'react-icons/ai';
-import { donateLink, repoLink, privacyPolicyLink } from '../constants';
+import { donateLink, privacyPolicyLink, repoLink } from '../constants';
 import ExternalLink from './ExternalLink';
 
 const Layout = (props: LayoutProps) => {
@@ -48,17 +47,6 @@ const Layout = (props: LayoutProps) => {
                 aria-label='View source on GitHub'
               >
                 <SiGithub className='opacity-80 transition hover:opacity-100' />
-              </a>
-            </li>
-
-            <li>
-              <a
-                href={privacyPolicyLink}
-                target='_blank'
-                rel='noreferrer'
-                aria-label='View Privacy Policy'
-              >
-                <AiOutlineFileProtect className='opacity-80 transition hover:opacity-100' />
               </a>
             </li>
           </ul>
