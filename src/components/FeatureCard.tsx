@@ -38,6 +38,7 @@ export default function FeatureCard({
 
       <div className='relative mt-4 h-[calc(100vh/2)] max-h-[700px] w-full drop-shadow-lg lg:hidden'>
         <Image
+          className='transition duration-1000'
           alt={alt}
           src={src}
           layout='fill'
