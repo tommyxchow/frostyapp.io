@@ -38,7 +38,7 @@ export default function FeatureCard({
         </p>
       </div>
 
-      <div className='relative mt-4 h-[calc(100vh/2)] max-h-[700px] w-full drop-shadow-lg lg:hidden'>
+      <div className='relative mt-4 h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-lg lg:hidden'>
         <Image
           className={`transition duration-500 ease-out ${
             imageLoaded ? 'opacity-100' : 'opacity-0'

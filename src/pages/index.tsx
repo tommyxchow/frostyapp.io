@@ -211,8 +211,6 @@ const Home = () => {
     },
   };
 
-  const [landingImageLoaded, setLandingImageLoaded] = useState(false);
-
   return (
     <Layout
       title='Mobile Twitch app with BTTV, FFZ, and 7TV support'
@@ -240,7 +238,7 @@ const Home = () => {
         animate='visible'
       >
         <video
-          className='h-[calc(100vh/1.8)] max-h-[700px] rounded-2xl'
+          className='h-[calc(100vh/1.8)] max-h-[700px] rounded-2xl lg:h-fit lg:max-h-fit'
           src='/video.mp4'
           autoPlay
           loop
