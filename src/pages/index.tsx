@@ -239,24 +239,14 @@ const Home = () => {
         initial='hidden'
         animate='visible'
       >
-        <div className='relative h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl'>
-          <Image
-            className={`transition duration-500 ease-out ${
-              landingImageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoadingComplete={() => setLandingImageLoaded(true)}
-            alt="Screenshot of xQc's video stream and live chat."
-            src={
-              showAndroidScreenshots
-                ? '/screenshots/channel-android.webp'
-                : '/screenshots/channel-ios.webp'
-            }
-            layout='fill'
-            objectFit='contain'
-            sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
-            priority
-          />
-        </div>
+        <video
+          className='rounded-2xl'
+          src='/video.mp4'
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
 
         <div className='flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-8 lg:justify-self-start lg:pl-8'>
           <h1 className='text-center text-2xl font-bold lg:text-left lg:text-4xl'>
