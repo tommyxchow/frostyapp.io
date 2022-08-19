@@ -246,6 +246,7 @@ const Home = () => {
           loop
           muted
           playsInline
+          disableRemotePlayback
         />
 
         <div className='flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-8 lg:justify-self-start lg:pl-8'>
