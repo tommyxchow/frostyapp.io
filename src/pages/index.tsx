@@ -240,7 +240,7 @@ const Home = () => {
         animate='visible'
       >
         <video
-          className='rounded-2xl'
+          className='h-[calc(100vh/1.8)] max-h-[700px] rounded-2xl'
           src='/video.mp4'
           autoPlay
           loop
