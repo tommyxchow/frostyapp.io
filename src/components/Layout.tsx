@@ -3,7 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { SiBuymeacoffee, SiGithub } from 'react-icons/si';
-import { donateLink, privacyPolicyLink, repoLink } from '../constants';
+import {
+  donateLink,
+  emailLink,
+  privacyPolicyLink,
+  repoLink,
+  sourceLink,
+  tommyLink,
+} from '../constants';
 import ExternalLink from './ExternalLink';
 
 const Layout = (props: LayoutProps) => {
