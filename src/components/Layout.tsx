@@ -60,7 +60,7 @@ const Layout = (props: LayoutProps) => {
       <footer className='flex flex-col items-center justify-center gap-8 p-8 pt-32'>
         <ul className='flex items-center gap-4 text-sm sm:gap-8 lg:text-base'>
           <li>
-            <ExternalLink text='Contact' href='mailto:contact@frostyapp.io' />
+            <ExternalLink text='Contact' href={emailLink} />
           </li>
           <li>
             <ExternalLink text='Donate' href={donateLink} />
@@ -74,7 +74,8 @@ const Layout = (props: LayoutProps) => {
         </ul>
         <p className='text-center text-xs text-neutral-400 lg:text-sm'>
           Designed and developed by{' '}
-          <ExternalLink text='Tommy Chow' href='https://tommychow.com' />
+          <ExternalLink text='Tommy Chow' href={tommyLink} /> (
+          <ExternalLink text='source' href={sourceLink} />)
         </p>
       </footer>
     </>
