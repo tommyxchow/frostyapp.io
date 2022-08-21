@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import CustomImage from './CustomImage';
 
 export default function FeatureCard({
   icon,
@@ -11,8 +11,6 @@ export default function FeatureCard({
   selected,
   onClick,
 }: FeatureCardProps) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <button
       className={`relative grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 transition duration-300 md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent ${
@@ -42,17 +40,7 @@ export default function FeatureCard({
       </div>
 
       <div className='relative mt-4 h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-lg lg:hidden'>
-        <Image
-          className={`transition duration-500 ease-out ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoadingComplete={() => setImageLoaded(true)}
-          alt={alt}
-          src={src}
-          layout='fill'
-          objectFit='contain'
-          sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
-        />
+        <CustomImage alt={alt} src={src} />
       </div>
     </button>
   );

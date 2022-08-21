@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { useState } from 'react';
 import {
   MdArrowUpward,
@@ -16,8 +16,8 @@ import {
   SiAppstore,
   SiGithub,
   SiGoogleplay,
-  SiIos,
 } from 'react-icons/si';
+import CustomImage from '../components/CustomImage';
 import ExternalLink from '../components/ExternalLink';
 import FAQ from '../components/FAQ';
 import FeatureCard from '../components/FeatureCard';
@@ -33,10 +33,10 @@ import {
   sevenTvLink,
   twitchLink,
 } from '../constants';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
 
 const Home = () => {
   const [featureIndex, setFeatureIndex] = useState(0);
+  const [showAndroidScreenshots, setShowAndroidScreenshots] = useState(false);
 
   const madeFor = [
     {
@@ -89,7 +89,7 @@ const Home = () => {
       icon: <MdEmojiEmotions />,
       featureTitle: 'Watch streams with chat',
       featureDescription:
-        'See and chat with all your favorite 7TV, BTTV, and FFZ and emotes.',
+        'See and chat with all your favorite 7TV, BTTV, and FFZ emotes.',
 
       iosImage: '/screenshots/emote-ios.webp',
       androidImage: '/screenshots/emote-android.webp',
@@ -183,9 +183,6 @@ const Home = () => {
       ))}
     </ul>
   );
-
-  const [showAndroidScreenshots, setShowAndroidScreenshots] = useState(false);
-  const [scrollingImageLoaded, setScrollingImageLoaded] = useState(false);
 
   const stagger: Variants = {
     hidden: {
@@ -401,20 +398,13 @@ const Home = () => {
                 }}
               >
                 <div className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl lg:block'>
-                  <Image
-                    className={`transition duration-500 ease-out ${
-                      scrollingImageLoaded ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    onLoadingComplete={() => setScrollingImageLoaded(true)}
+                  <CustomImage
                     alt={coreFeatures[featureIndex].featureDescription}
                     src={
                       showAndroidScreenshots
                         ? coreFeatures[featureIndex].androidImage
                         : coreFeatures[featureIndex].iosImage
                     }
-                    layout='fill'
-                    objectFit='contain'
-                    sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
                   />
                 </div>
 
