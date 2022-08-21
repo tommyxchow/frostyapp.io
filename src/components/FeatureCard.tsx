@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function FeatureCard({
   icon,
@@ -14,13 +15,19 @@ export default function FeatureCard({
 
   return (
     <button
-      className={`sticky grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 shadow-xl transition md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent lg:opacity-50 lg:hover:bg-neutral-800 lg:active:scale-95 lg:active:shadow-none ${
-        selected
-          ? 'lg:bg-neutral-800 lg:opacity-100 lg:shadow-lg'
-          : 'lg:shadow-none'
+      className={`relative grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 transition duration-300 md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent ${
+        !selected &&
+        'lg:bg-transparent lg:text-neutral-500 lg:hover:bg-neutral-800'
       }`}
       onClick={onClick}
     >
+      {selected && (
+        <motion.div
+          layoutId='bg'
+          className='absolute -z-10 h-full w-full rounded-lg bg-transparent bg-neutral-800 shadow-lg lg:bg-neutral-800'
+        />
+      )}
+
       <div>
         <div className='mb-2 text-lg md:flex md:items-center md:gap-2 lg:text-2xl'>
           <div className='hidden md:block'>{icon}</div>
@@ -29,11 +36,7 @@ export default function FeatureCard({
           </h3>
         </div>
 
-        <p
-          className={`text-center text-neutral-400 transition md:text-start lg:text-lg ${
-            !selected && 'lg:opacity-0'
-          }`}
-        >
+        <p className='text-center text-neutral-400 transition md:text-start lg:hidden'>
           {featureDescription}
         </p>
       </div>

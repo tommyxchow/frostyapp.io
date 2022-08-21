@@ -8,7 +8,7 @@ const SectionContainer = ({
 }: SectionContainerProps) => {
   return (
     <section
-      className={`w-full max-w-screen-xl py-8 px-4 lg:py-32 ${className}`}
+      className={`w-full max-w-screen-xl py-8 px-4 lg:py-16 ${className}`}
     >
       {header && (
         <h2

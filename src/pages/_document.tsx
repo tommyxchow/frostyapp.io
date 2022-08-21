@@ -51,7 +51,7 @@ export default function Document() {
         <meta property='og:title' content='Frosty for Twitch' />
         <meta
           property='og:description'
-          content='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party extensions for Twitch used by millions.'
+          content='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from 7TV, BetterTTV (BTTV), and FrankerFaceZ (FFZ) — popular third-party extensions for Twitch used by millions.'
         />
         <meta
           property='og:image'
@@ -64,7 +64,7 @@ export default function Document() {
         <meta name='twitter:title' content='Frosty for Twitch' />
         <meta
           name='twitter:description'
-          content='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party extensions for Twitch used by millions.'
+          content='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from 7TV, BetterTTV (BTTV), and FrankerFaceZ (FFZ) — popular third-party extensions for Twitch used by millions.'
         />
         <meta
           name='twitter:image'

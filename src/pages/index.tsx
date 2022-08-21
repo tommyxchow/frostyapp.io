@@ -10,7 +10,14 @@ import {
   MdSearch,
   MdSettings,
 } from 'react-icons/md';
-import { SiAppstore, SiGithub, SiGoogleplay } from 'react-icons/si';
+import {
+  SiAndroid,
+  SiApple,
+  SiAppstore,
+  SiGithub,
+  SiGoogleplay,
+  SiIos,
+} from 'react-icons/si';
 import ExternalLink from '../components/ExternalLink';
 import FAQ from '../components/FAQ';
 import FeatureCard from '../components/FeatureCard';
@@ -82,7 +89,7 @@ const Home = () => {
       icon: <MdEmojiEmotions />,
       featureTitle: 'Watch streams with chat',
       featureDescription:
-        'See and chat with all your favorite BTTV, FFZ, and 7TV emotes.',
+        'See and chat with all your favorite 7TV, BTTV, and FFZ and emotes.',
 
       iosImage: '/screenshots/emote-ios.webp',
       androidImage: '/screenshots/emote-android.webp',
@@ -180,24 +187,6 @@ const Home = () => {
   const [showAndroidScreenshots, setShowAndroidScreenshots] = useState(false);
   const [scrollingImageLoaded, setScrollingImageLoaded] = useState(false);
 
-  const scrollingImage = (
-    <Image
-      className={`transition duration-500 ease-out ${
-        scrollingImageLoaded ? 'opacity-100' : 'opacity-0'
-      }`}
-      onLoadingComplete={() => setScrollingImageLoaded(true)}
-      alt={coreFeatures[featureIndex].featureDescription}
-      src={
-        showAndroidScreenshots
-          ? coreFeatures[featureIndex].androidImage
-          : coreFeatures[featureIndex].iosImage
-      }
-      layout='fill'
-      objectFit='contain'
-      sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
-    />
-  );
-
   const stagger: Variants = {
     hidden: {
       opacity: 0,
@@ -213,8 +202,8 @@ const Home = () => {
 
   return (
     <Layout
-      title='Mobile Twitch app with BTTV, FFZ, and 7TV support'
-      description='Frosty is a free and open-source mobile Twitch app for iOS and Android built from the ground up. It supports emotes and badges from BetterTTV (BTTV), FrankerFaceZ (FFZ), and 7TV — popular third-party extensions for Twitch used by millions.'
+      title='Mobile Twitch app with 7TV, BTTV, and FFZ support'
+      description='Frosty brings quality-of-life features and, most importantly, third-party emotes from 7TV, BetterTTV (BTTV), and FrankerFaceZ (FFZ) — popular extensions for Twitch used by millions — to both iOS and Android.'
     >
       <div className='absolute inset-0 -z-10 min-h-screen bg-gradient-to-b from-twitch-purple via-black' />
 
@@ -255,11 +244,11 @@ const Home = () => {
           <p className='mb-4 max-w-lg text-center text-white text-opacity-60 lg:mb-8 lg:text-left lg:text-lg'>
             Frosty brings quality-of-life features and, most importantly,
             third-party emotes from{' '}
-            <ExternalLink text='BetterTTV (BTTV)' href={bttvLink} />,{' '}
-            <ExternalLink text='FrankerFaceZ (FFZ)' href={ffzLink} />, and{' '}
-            <ExternalLink text='7TV' href={sevenTvLink} /> — popular extensions
-            for <ExternalLink text='Twitch' href={twitchLink} /> used by
-            millions — to both iOS and Android.
+            <ExternalLink text='7TV' href={sevenTvLink} />,{' '}
+            <ExternalLink text='BetterTTV (BTTV)' href={bttvLink} />, and{' '}
+            <ExternalLink text='FrankerFaceZ (FFZ)' href={ffzLink} /> — popular
+            extensions for <ExternalLink text='Twitch' href={twitchLink} /> used
+            by millions — to both iOS and Android.
           </p>
 
           <div className='hidden items-center gap-4 lg:flex'>
@@ -370,27 +359,9 @@ const Home = () => {
           </div>
 
           <div className='sticky top-[calc(100vh/4)] hidden h-fit flex-col items-center gap-4 lg:flex'>
-            <AnimatePresence mode='wait'>
-              <motion.div
-                key={featureIndex + showAndroidScreenshots.toString()}
-                className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl lg:block'
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  transition: { duration: 0.2 },
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.95,
-                  transition: { duration: 0.2 },
-                }}
-              >
-                {scrollingImage}
-              </motion.div>
-            </AnimatePresence>
             <div className='grid grid-cols-2 gap-2 font-medium'>
               <button
+                aria-label='Show iOS screenshot'
                 className={`rounded-lg bg-opacity-20 py-2 px-4 transition hover:bg-blue-500 hover:bg-opacity-20 active:scale-90 ${
                   !showAndroidScreenshots
                     ? 'bg-blue-500 text-blue-400'
@@ -398,9 +369,10 @@ const Home = () => {
                 }`}
                 onClick={() => setShowAndroidScreenshots(false)}
               >
-                iOS
+                <SiApple />
               </button>
               <button
+                aria-label='Show Android screenshot'
                 className={`rounded-lg bg-opacity-20 py-2 px-4 transition hover:bg-green-500 hover:bg-opacity-20 active:scale-90 ${
                   showAndroidScreenshots
                     ? 'bg-green-500 text-green-400'
@@ -408,9 +380,49 @@ const Home = () => {
                 }`}
                 onClick={() => setShowAndroidScreenshots(true)}
               >
-                Android
+                <SiAndroid />
               </button>
             </div>
+
+            <AnimatePresence mode='wait'>
+              <motion.figure
+                className='flex w-full flex-col items-center gap-4'
+                key={featureIndex + showAndroidScreenshots.toString()}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 0.3 },
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.95,
+                  transition: { duration: 0.3 },
+                }}
+              >
+                <div className='relative hidden h-[calc(100vh/1.8)] max-h-[700px] w-full drop-shadow-xl lg:block'>
+                  <Image
+                    className={`transition duration-500 ease-out ${
+                      scrollingImageLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    onLoadingComplete={() => setScrollingImageLoaded(true)}
+                    alt={coreFeatures[featureIndex].featureDescription}
+                    src={
+                      showAndroidScreenshots
+                        ? coreFeatures[featureIndex].androidImage
+                        : coreFeatures[featureIndex].iosImage
+                    }
+                    layout='fill'
+                    objectFit='contain'
+                    sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
+                  />
+                </div>
+
+                <figcaption className='max-w-xs text-center text-neutral-400'>
+                  {coreFeatures[featureIndex].featureDescription}
+                </figcaption>
+              </motion.figure>
+            </AnimatePresence>
           </div>
         </div>
       </SectionContainer>
