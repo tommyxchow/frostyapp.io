@@ -233,7 +233,7 @@ const Home = () => {
           disableRemotePlayback
         />
 
-        <div className='flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-8 lg:justify-self-start lg:pl-8'>
+        <div className='flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-8'>
           <h1 className='text-center text-2xl font-bold lg:text-left lg:text-4xl'>
             The better mobile <br /> Twitch chat experience.
           </h1>
@@ -269,7 +269,7 @@ const Home = () => {
         <div className='flex w-full justify-center lg:hidden'>{badges}</div>
       </motion.section>
 
-      <SectionContainer header='Made for everyone'>
+      <SectionContainer header='Made for'>
         <motion.ul
           className='flex flex-col gap-4 md:flex-row'
           variants={stagger}
@@ -325,7 +325,7 @@ const Home = () => {
               whileInView='visible'
               viewport={{ once: true, amount: 1 }}
             >
-              <motion.h3 className='font-semibold lg:text-xl'>
+              <motion.h3 className='font-bold uppercase tracking-wider text-purple-500 lg:text-xl'>
                 And much more...
               </motion.h3>
               <motion.ul
@@ -421,7 +421,7 @@ const Home = () => {
         {badges}
       </SectionContainer>
 
-      <SectionContainer header='Frequently asked questions' centerHeader>
+      <SectionContainer header='FAQ' centerHeader>
         <div className='m-auto flex max-w-screen-md flex-col gap-4'>
           {faqs.map((faq) => (
             <FAQ key={faq.question} {...faq} />

@@ -12,7 +12,7 @@ const SectionContainer = ({
     >
       {header && (
         <h2
-          className={`p-4 text-center text-xl font-bold lg:p-8 lg:text-3xl ${
+          className={`p-4 text-center font-bold uppercase tracking-wider text-purple-500 lg:p-8 lg:text-xl ${
             !centerHeader && 'lg:text-left'
           }`}
         >
