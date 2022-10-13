@@ -1,5 +1,7 @@
 # [frostyapp.io](https://frostyapp.io)
 
+![Screenshot](https://user-images.githubusercontent.com/54859075/195729060-9d2f961a-7fba-4b5f-afb3-f75a36cc4389.png)
+
 The homepage and marketing website for [Frosty](https://github.com/tommyxchow/frosty), a mobile Twitch.tv client for iOS and Android.
 
 Built with [Next.js](https://nextjs.org), styled with [Tailwind CSS](https://tailwindcss.com), and deployed with [Vercel](https://vercel.com).
