@@ -140,6 +140,21 @@ const Home = () => {
         'Ad block is not planned because it would probably violate the Twitch terms of service.',
     },
     {
+      question: 'Will Frosty support TVs (Apple/Android TV)?',
+      answer:
+        "Not yet, because Flutter (the framework that Frosty is built upon) doesn't officially support TVs just yet. Hopefully, this changes in the future!",
+    },
+    {
+      question: 'Can I watch VODs with chat?',
+      answer:
+        'Twitch does not provide VOD chat messages with their current API, so VODs with chat are not possible yet.',
+    },
+    {
+      question: 'Why is feature "X" from Twitch not in the app as well?',
+      answer:
+        "I'm limited to what is available in the Twitch API, so certain features from the Twitch web or mobile app (e.g., voting on predictions and category viewer counts) are not available at the moment.",
+    },
+    {
       question: 'Where can I report a bug or request a new feature?',
       answer: 'You can open a new issue on the GitHub repo.',
     },
@@ -171,7 +186,7 @@ const Home = () => {
       {badgeData.map((badge) => (
         <li className='w-full' key={badge.text}>
           <a
-            className={`flex items-center justify-center gap-2 rounded-full p-4 font-semibold shadow-md transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
+            className={`flex items-center justify-center gap-2 rounded-lg p-4 font-semibold shadow-md transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
             href={badge.link}
             target='_blank'
             rel='noreferrer'
@@ -269,7 +284,7 @@ const Home = () => {
         <div className='flex w-full justify-center lg:hidden'>{badges}</div>
       </motion.section>
 
-      <SectionContainer header='Made for'>
+      <SectionContainer id='made-for' header='Made for'>
         <motion.ul
           className='flex flex-col gap-4 md:flex-row'
           variants={stagger}
@@ -289,8 +304,8 @@ const Home = () => {
         </motion.ul>
       </SectionContainer>
 
-      <SectionContainer header='Features'>
-        <div className='grid lg:grid-cols-2'>
+      <SectionContainer id='features' header='Features'>
+        <div className='grid w-full lg:grid-cols-2'>
           <div className='flex flex-col gap-8 lg:gap-16'>
             <motion.ul
               className='flex flex-col gap-4'
@@ -325,7 +340,7 @@ const Home = () => {
               whileInView='visible'
               viewport={{ once: true, amount: 1 }}
             >
-              <motion.h3 className='font-bold uppercase tracking-wider text-purple-500 lg:text-xl'>
+              <motion.h3 className='font-bold text-purple-500 lg:text-xl'>
                 And much more...
               </motion.h3>
               <motion.ul
@@ -417,12 +432,12 @@ const Home = () => {
         </div>
       </SectionContainer>
 
-      <SectionContainer header='Get started' centerHeader>
+      <SectionContainer id='get-started' header='Get started!' centerHeader>
         {badges}
       </SectionContainer>
 
-      <SectionContainer header='FAQ' centerHeader>
-        <div className='m-auto flex max-w-screen-md flex-col gap-4'>
+      <SectionContainer id='faq' header='FAQ' centerHeader>
+        <div className='flex w-full max-w-screen-md flex-col gap-4'>
           {faqs.map((faq) => (
             <FAQ key={faq.question} {...faq} />
           ))}

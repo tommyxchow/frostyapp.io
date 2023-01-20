@@ -1,33 +1,38 @@
 import React from 'react';
 
 const SectionContainer = ({
-  className,
+  id,
   header,
   children,
-  centerHeader = false,
+  centerHeader,
 }: SectionContainerProps) => {
   return (
     <section
-      className={`w-full max-w-screen-xl py-8 px-4 lg:py-16 ${className}`}
+      id={id}
+      className={`flex w-full max-w-screen-xl flex-col items-center py-8 px-4 lg:py-16 ${
+        centerHeader ? 'items-center' : 'lg:items-start'
+      }`}
     >
-      {header && (
-        <h2
-          className={`p-4 text-center font-bold uppercase tracking-wider text-purple-500 lg:p-8 lg:text-xl ${
-            !centerHeader && 'lg:text-left'
-          }`}
+      <h2 className='group w-fit p-4 text-center text-xl font-bold text-purple-500 lg:p-8 lg:text-2xl'>
+        <a
+          href={`#${id}`}
+          className='absolute -ml-6 opacity-0 transition group-hover:opacity-100'
         >
-          {header}
-        </h2>
-      )}
+          #
+        </a>
+
+        {header}
+      </h2>
+
       {children}
     </section>
   );
 };
 
 interface SectionContainerProps {
-  className?: string;
+  id: string;
   children: React.ReactNode;
-  header?: string;
+  header: string;
   centerHeader?: boolean;
 }
 
