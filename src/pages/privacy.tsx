@@ -6,7 +6,7 @@ export default function Privacy() {
       title='Privacy Policy | Frosty'
       description='Privacy policy for Frosty.'
     >
-      <article className='prose !prose-invert prose-neutral pt-32'>
+      <article className='prose !prose-invert prose-neutral px-4 pt-32'>
         <h1>Privacy policy for Frosty</h1>
         <p>Last updated: May 2023</p>
 
