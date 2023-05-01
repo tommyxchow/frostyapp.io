@@ -6,7 +6,6 @@ import { SiBuymeacoffee, SiGithub } from 'react-icons/si';
 import {
   donateLink,
   emailLink,
-  privacyPolicyLink,
   repoLink,
   sourceLink,
   tommyLink,
@@ -76,7 +75,11 @@ const Layout = (props: LayoutProps) => {
             <ExternalLink text='GitHub' href={repoLink} />
           </li>
           <li>
-            <ExternalLink text='Privacy' href={privacyPolicyLink} />
+            <Link href='/privacy'>
+              <a className='border-b-2 border-b-purple-500 border-opacity-0 font-medium text-purple-500 transition hover:border-opacity-100'>
+                Privacy
+              </a>
+            </Link>
           </li>
         </ul>
         <p className='text-center text-xs text-neutral-400 lg:text-sm'>
