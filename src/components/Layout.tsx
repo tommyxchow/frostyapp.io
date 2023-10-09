@@ -24,13 +24,11 @@ const Layout = (props: LayoutProps) => {
 
       <header className='fixed z-50 w-full overflow-auto text-lg backdrop-blur lg:text-2xl'>
         <nav className='m-auto flex max-w-screen-xl items-center justify-between gap-4 p-4 font-semibold lg:gap-8 lg:px-12 lg:py-8'>
-          <Link href='/'>
-            <a className='flex items-center gap-2'>
-              <div className='relative h-8 w-8'>
-                <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
-              </div>
-              <h1>Frosty</h1>
-            </a>
+          <Link className='flex items-center gap-2' href='/'>
+            <div className='relative h-8 w-8'>
+              <Image alt='Logo' src={`/logo.svg`} layout='fill' priority />
+            </div>
+            <h1>Frosty</h1>
           </Link>
 
           <ul className='flex items-center gap-4 lg:gap-8 lg:text-xl'>
@@ -75,10 +73,11 @@ const Layout = (props: LayoutProps) => {
             <ExternalLink text='GitHub' href={repoLink} />
           </li>
           <li>
-            <Link href='/privacy'>
-              <a className='border-b-2 border-b-purple-500 border-opacity-0 font-medium text-purple-500 transition hover:border-opacity-100'>
-                Privacy
-              </a>
+            <Link
+              className='border-b-2 border-b-purple-500 border-opacity-0 font-medium text-purple-500 transition hover:border-opacity-100'
+              href='/privacy'
+            >
+              Privacy
             </Link>
           </li>
         </ul>
