@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function MadeForCard({ icon, user, description }: WhyCardProps) {
   return (
-    <div className='flex h-full w-full flex-col gap-2 rounded-lg bg-neutral-800 p-8 shadow-lg'>
+    <div className='flex h-full w-full flex-col gap-2 rounded-lg bg-neutral-900 p-8 shadow-lg'>
       <div className='flex items-center gap-2 text-lg lg:text-2xl'>
         <div>{icon}</div>
         <h3 className='font-semibold'>{user}</h3>

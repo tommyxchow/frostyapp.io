@@ -13,16 +13,16 @@ export default function FeatureCard({
 }: FeatureCardProps) {
   return (
     <button
-      className={`relative grid w-full select-text items-center gap-2 rounded-lg bg-neutral-800 p-8 transition duration-300 md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent ${
+      className={`relative grid w-full select-text items-center gap-2 rounded-lg bg-neutral-900 p-8 transition duration-300 md:grid-cols-2 lg:grid-cols-1 lg:items-start lg:justify-center lg:bg-transparent ${
         !selected &&
-        'lg:bg-transparent lg:text-neutral-500 lg:hover:bg-neutral-800'
+        'lg:bg-transparent lg:text-neutral-500 lg:hover:bg-neutral-900'
       }`}
       onClick={onClick}
     >
       {selected && (
         <motion.div
           layoutId='bg'
-          className='absolute -z-10 h-full w-full rounded-lg bg-transparent bg-neutral-800 shadow-lg lg:bg-neutral-800'
+          className='absolute -z-10 h-full w-full rounded-lg bg-transparent bg-neutral-900 shadow-lg lg:bg-neutral-900'
         />
       )}
 

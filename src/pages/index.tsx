@@ -34,190 +34,190 @@ import {
   twitchLink,
 } from '../constants';
 
-const Home = () => {
+const madeFor = [
+  {
+    icon: <MdEmojiPeople className='text-blue-500' />,
+    user: 'New users',
+    description:
+      "Discover the vast community of Twitch's most popular streams and categories, no login required.",
+  },
+  {
+    icon: <MdLiveTv className='text-purple-500' />,
+    user: 'Twitch regulars',
+    description:
+      'Log in with your Twitch account to utilize features such as sending chat messages and blocking users.',
+  },
+  {
+    icon: <MdDeveloperMode className='text-green-500' />,
+    user: 'Developers',
+    description:
+      'Explore the free and open-source code on GitHub. Contributions and issues are always welcome!',
+  },
+];
+
+const coreFeatures = [
+  {
+    icon: <MdFavorite />,
+    featureTitle: 'Browse followed streams',
+    featureDescription:
+      'Instantly access your followed streams when you launch Frosty.',
+    iosImage: '/screenshots/followed-ios.webp',
+    androidImage: '/screenshots/followed-android.webp',
+    alt: 'Screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
+  },
+  {
+    icon: <MdArrowUpward />,
+    featureTitle: 'Explore top streams and categories',
+    featureDescription: "Discover what's currently trending across Twitch.",
+    iosImage: '/screenshots/categories-ios.webp',
+    androidImage: '/screenshots/categories-android.webp',
+    alt: 'Screenshot of the top categories tab, showing a 2-column grid of category box arts.',
+  },
+  {
+    icon: <MdSearch />,
+    featureTitle: 'Search for channels and categories',
+    featureDescription: 'Join offline channels or find new categories.',
+    iosImage: '/screenshots/search-ios.webp',
+    androidImage: '/screenshots/search-android.webp',
+    alt: 'Screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
+  },
+  {
+    icon: <MdEmojiEmotions />,
+    featureTitle: 'Watch streams with chat',
+    featureDescription:
+      'See and chat with all your favorite 7TV, BTTV, and FFZ emotes.',
+
+    iosImage: '/screenshots/emote-ios.webp',
+    androidImage: '/screenshots/emote-android.webp',
+    alt: "Screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
+  },
+  {
+    icon: <MdSettings />,
+    featureTitle: 'Customizable settings',
+    featureDescription:
+      'Tweak layouts, adjust emote sizing, change themes, and more.',
+
+    iosImage: '/screenshots/settings-ios.webp',
+    androidImage: '/screenshots/settings-android.webp',
+    alt: 'Screenshot of the settings section with the chat options expanded.',
+  },
+];
+
+const otherFeatures = [
+  'Autocomplete emotes and user mentions',
+  'Light, dark, and black (OLED) themes',
+  'See and filter chatters in a channel',
+  'Local chat user message history',
+  'Theater and fullscreen mode',
+  'Picture-in-picture mode',
+  'Block and report users',
+  'Sleep timer',
+];
+
+const faqs = [
+  {
+    question: 'Why are some Twitch features not in Frosty?',
+    answer:
+      'Features are usually limited by what is allowed in the official Twitch API, so some features (e.g., voting on predictions and total view count for categories) are not yet available.',
+  },
+  {
+    question: "Why can't I change the stream quality?",
+    answer:
+      'There is currently no straightforward official API for getting the raw stream URLs, so streams rely on the auto setting for now.',
+  },
+  {
+    question: 'Why is the stream delayed on iOS?',
+    answer:
+      'There is a delay of around 15 seconds due to how the native iOS player works. As a workaround, Frosty has a message delay option that lets you set the delay (in seconds) before each message is rendered.',
+  },
+  {
+    question: 'Is ad block planned?',
+    answer:
+      'Ad block is not planned because it would probably violate the Twitch terms of service.',
+  },
+  {
+    question: 'Will Frosty support TVs (Apple/Android TV)?',
+    answer:
+      "Not yet, because Flutter (the framework that Frosty is built upon) doesn't officially support TVs just yet. Hopefully, this changes in the future!",
+  },
+  {
+    question: 'Can I watch VODs with chat?',
+    answer:
+      'Twitch does not provide VOD chat messages with their current API, so VODs with chat are not possible yet.',
+  },
+  {
+    question: 'Why is feature "X" from Twitch not in the app as well?',
+    answer:
+      "I'm limited to what is available in the Twitch API, so certain features from the Twitch web or mobile app (e.g., voting on predictions and category viewer counts) are not available at the moment.",
+  },
+  {
+    question: 'Where can I report a bug or request a new feature?',
+    answer: 'You can open a new issue on the GitHub repo.',
+  },
+];
+
+const badgeData = [
+  {
+    icon: <SiAppstore className='text-2xl text-blue-500 lg:text-3xl' />,
+    text: 'Download on App Store',
+    link: appStoreLink,
+    color: 'bg-blue-800',
+  },
+  {
+    icon: <SiGoogleplay className='text-2xl text-green-500 lg:text-3xl' />,
+    text: 'Download on Google Play',
+    link: playStoreLink,
+    color: 'bg-green-800',
+  },
+  {
+    icon: <SiGithub className='text-2xl lg:text-3xl' />,
+    text: 'View source on GitHub',
+    link: repoLink,
+    color: 'bg-gray-800',
+  },
+];
+
+const badges = (
+  <ul className='m-auto flex w-full max-w-lg flex-col items-center gap-4 lg:px-8'>
+    {badgeData.map((badge) => (
+      <li className='w-full' key={badge.text}>
+        <a
+          className={`flex items-center justify-center gap-2 rounded-lg p-4 font-semibold shadow-md transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
+          href={badge.link}
+          target='_blank'
+          rel='noreferrer'
+        >
+          {badge.icon}
+          {badge.text}
+        </a>
+      </li>
+    ))}
+  </ul>
+);
+
+const stagger: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      ease: 'easeOut',
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+export default function Home() {
   const [featureIndex, setFeatureIndex] = useState(0);
   const [showAndroidScreenshots, setShowAndroidScreenshots] = useState(false);
-
-  const madeFor = [
-    {
-      icon: <MdEmojiPeople className='text-blue-500' />,
-      user: 'New users',
-      description:
-        "Discover the vast community of Twitch's most popular streams and categories, no login required.",
-    },
-    {
-      icon: <MdLiveTv className='text-purple-500' />,
-      user: 'Twitch regulars',
-      description:
-        'Log in with your Twitch account to utilize features such as sending chat messages and blocking users.',
-    },
-    {
-      icon: <MdDeveloperMode className='text-green-500' />,
-      user: 'Developers',
-      description:
-        'Explore the free and open-source code on GitHub. Contributions and issues are always welcome!',
-    },
-  ];
-
-  const coreFeatures = [
-    {
-      icon: <MdFavorite />,
-      featureTitle: 'Browse followed streams',
-      featureDescription:
-        'Instantly access your followed streams when you launch Frosty.',
-      iosImage: '/screenshots/followed-ios.webp',
-      androidImage: '/screenshots/followed-android.webp',
-      alt: 'Screenshot of the followed streams tab, showing a list of live channels with thumbnails and stream details.',
-    },
-    {
-      icon: <MdArrowUpward />,
-      featureTitle: 'Explore top streams and categories',
-      featureDescription: "Discover what's currently trending across Twitch.",
-      iosImage: '/screenshots/categories-ios.webp',
-      androidImage: '/screenshots/categories-android.webp',
-      alt: 'Screenshot of the top categories tab, showing a 2-column grid of category box arts.',
-    },
-    {
-      icon: <MdSearch />,
-      featureTitle: 'Search for channels and categories',
-      featureDescription: 'Join offline channels or find new categories.',
-      iosImage: '/screenshots/search-ios.webp',
-      androidImage: '/screenshots/search-android.webp',
-      alt: 'Screenshot of the search tab, showing the channel and category results from a search query of "pokelaw".',
-    },
-    {
-      icon: <MdEmojiEmotions />,
-      featureTitle: 'Watch streams with chat',
-      featureDescription:
-        'See and chat with all your favorite 7TV, BTTV, and FFZ emotes.',
-
-      iosImage: '/screenshots/emote-ios.webp',
-      androidImage: '/screenshots/emote-android.webp',
-      alt: "Screenshot of the channel view with pokelawls' video stream and live chat and the emote menu expanded.",
-    },
-    {
-      icon: <MdSettings />,
-      featureTitle: 'Customizable settings',
-      featureDescription:
-        'Tweak layouts, adjust emote sizing, change themes, and more.',
-
-      iosImage: '/screenshots/settings-ios.webp',
-      androidImage: '/screenshots/settings-android.webp',
-      alt: 'Screenshot of the settings section with the chat options expanded.',
-    },
-  ];
-
-  const otherFeatures = [
-    'Autocomplete emotes and user mentions',
-    'Light, dark, and black (OLED) themes',
-    'See and filter chatters in a channel',
-    'Local chat user message history',
-    'Theater and fullscreen mode',
-    'Picture-in-picture mode',
-    'Block and report users',
-    'Sleep timer',
-  ];
-
-  const faqs = [
-    {
-      question: 'Why are some Twitch features not in Frosty?',
-      answer:
-        'Features are usually limited by what is allowed in the official Twitch API, so some features (e.g., voting on predictions and total view count for categories) are not yet available.',
-    },
-    {
-      question: "Why can't I change the stream quality?",
-      answer:
-        'There is currently no straightforward official API for getting the raw stream URLs, so streams rely on the auto setting for now.',
-    },
-    {
-      question: 'Why is the stream delayed on iOS?',
-      answer:
-        'There is a delay of around 15 seconds due to how the native iOS player works. As a workaround, Frosty has a message delay option that lets you set the delay (in seconds) before each message is rendered.',
-    },
-    {
-      question: 'Is ad block planned?',
-      answer:
-        'Ad block is not planned because it would probably violate the Twitch terms of service.',
-    },
-    {
-      question: 'Will Frosty support TVs (Apple/Android TV)?',
-      answer:
-        "Not yet, because Flutter (the framework that Frosty is built upon) doesn't officially support TVs just yet. Hopefully, this changes in the future!",
-    },
-    {
-      question: 'Can I watch VODs with chat?',
-      answer:
-        'Twitch does not provide VOD chat messages with their current API, so VODs with chat are not possible yet.',
-    },
-    {
-      question: 'Why is feature "X" from Twitch not in the app as well?',
-      answer:
-        "I'm limited to what is available in the Twitch API, so certain features from the Twitch web or mobile app (e.g., voting on predictions and category viewer counts) are not available at the moment.",
-    },
-    {
-      question: 'Where can I report a bug or request a new feature?',
-      answer: 'You can open a new issue on the GitHub repo.',
-    },
-  ];
-
-  const badgeData = [
-    {
-      icon: <SiAppstore className='text-2xl text-blue-500 lg:text-3xl' />,
-      text: 'Download on App Store',
-      link: appStoreLink,
-      color: 'bg-blue-800',
-    },
-    {
-      icon: <SiGoogleplay className='text-2xl text-green-500 lg:text-3xl' />,
-      text: 'Download on Google Play',
-      link: playStoreLink,
-      color: 'bg-green-800',
-    },
-    {
-      icon: <SiGithub className='text-2xl lg:text-3xl' />,
-      text: 'View source on GitHub',
-      link: repoLink,
-      color: 'bg-gray-800',
-    },
-  ];
-
-  const badges = (
-    <ul className='m-auto flex w-full max-w-lg flex-col items-center gap-4 lg:px-8'>
-      {badgeData.map((badge) => (
-        <li className='w-full' key={badge.text}>
-          <a
-            className={`flex items-center justify-center gap-2 rounded-lg p-4 font-semibold shadow-md transition hover:opacity-50 active:scale-95 active:shadow-none lg:text-lg ${badge.color}`}
-            href={badge.link}
-            target='_blank'
-            rel='noreferrer'
-          >
-            {badge.icon}
-            {badge.text}
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
-
-  const stagger: Variants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        ease: 'easeOut',
-        staggerChildren: 0.2,
-      },
-    },
-  };
 
   return (
     <Layout
       title='Mobile Twitch app with 7TV, BTTV, and FFZ support'
       description='Frosty brings quality-of-life features and, most importantly, third-party emotes from 7TV, BetterTTV (BTTV), and FrankerFaceZ (FFZ) — popular extensions for Twitch used by millions — to both iOS and Android.'
     >
-      <div className='absolute inset-0 -z-10 min-h-screen bg-gradient-to-b from-twitch-purple via-black' />
+      <div className='absolute inset-0 -z-10 min-h-screen bg-gradient-to-b from-twitch-purple opacity-50 via-neutral-950' />
 
       <motion.section
         className='grid min-h-screen w-full max-w-screen-xl place-items-center gap-8 px-4 pt-32 pb-16 lg:grid-cols-2 lg:gap-0'
@@ -250,7 +250,7 @@ const Home = () => {
 
         <div className='flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-8'>
           <h1 className='text-center text-2xl font-bold lg:text-left lg:text-4xl'>
-            The better mobile <br /> Twitch chat experience.
+            The better mobile <br /> Twitch chat experience
           </h1>
 
           <p className='mb-4 max-w-lg text-center text-white text-opacity-60 lg:mb-8 lg:text-left lg:text-lg'>
@@ -445,6 +445,4 @@ const Home = () => {
       </SectionContainer>
     </Layout>
   );
-};
-
-export default Home;
+}

@@ -1,6 +1,6 @@
 export default function FAQ({ question, answer }: FAQProps) {
   return (
-    <details className='rounded-lg bg-neutral-800 p-8 shadow' key={question}>
+    <details className='rounded-lg bg-neutral-900 p-8 shadow' key={question}>
       <summary className='cursor-pointer text-lg font-semibold lg:text-xl'>
         {question}
       </summary>
