@@ -14,7 +14,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)'],
       },
-            colors: {
+      colors: {
         'twitch-purple': '#9146ff',
       },
     },
