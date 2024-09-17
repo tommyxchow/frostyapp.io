@@ -1,3 +1,7 @@
+> [!IMPORTANT]  
+> Moved to https://github.com/tommyxchow/frosty
+
+
 # [frostyapp.io](https://frostyapp.io)
 
 ![Screenshot](https://user-images.githubusercontent.com/54859075/195729060-9d2f961a-7fba-4b5f-afb3-f75a36cc4389.png)
